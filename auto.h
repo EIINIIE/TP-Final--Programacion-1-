@@ -24,6 +24,8 @@ Auto cargar_auto();
 void agregar_autos();
 void mostrar_auto(Auto a);
 void mostrar_autos(char archivo[]);
+int medioDPago(int precioDeAdquisicion);
+
 
 #endif // AUTO_H_INCLUDED
-///Esto va al final porque #endif es el cierre de una condición
+///Esto va al final porque #endif es el cierre de una condiciÃ³n
