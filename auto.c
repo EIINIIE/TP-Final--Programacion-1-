@@ -15,13 +15,15 @@ Auto cargar_auto()
     scanf("%s", autos.marca);
     printf("Modelo: ");
     scanf("%s", autos.modelo);
-    printf("Año: ");
+    printf("AÃ±o: ");
     scanf("%d", &autos.anio);
     printf("Kilometros: ");
     scanf("%d", &autos.kms);
     printf("Precio: ");
     scanf("%f", &autos.precioDeAdquisicion);
 
+     autos.precioDeAdquisicion = medioDPago(autos.precioDeAdquisicion);
+    
     return autos;
 }
 
@@ -50,15 +52,15 @@ void mostrar_auto(Auto a)
     printf("Patente: %s\n", a.patente);
     printf("Marca: %s\n", a.marca);
     printf("Modelo: %s\n", a.modelo);
-    printf("Año: %d\n", a.anio);
+    printf("AÃ±o: %d\n", a.anio);
     printf("Kilometraje: %d\n", a.kms);
-    printf("Precio de adquisición: $%.2f\n", a.precioDeAdquisicion);
+    printf("Precio de adquisiciÃ³n: $%.2f\n", a.precioDeAdquisicion);
 
     printf("----DATOS DEL TITULAR----\n");
     printf("DNI: %s\n", a.titular.dni);
     printf("Nombre: %s\n", a.titular.nombre);
-    printf("Teléfono: %s\n", a.titular.telefono);
-    printf("Dirección: %s\n", a.titular.direccion);
+    printf("TelÃ©fono: %s\n", a.titular.telefono);
+    printf("DirecciÃ³n: %s\n", a.titular.direccion);
     printf("Rol: %s\n", a.titular.rol);
 }
 
@@ -79,4 +81,34 @@ void mostrar_autos(char archivo[])
         printf("\n");
     }
     fclose(file);
+}
+
+//FUNCION 5
+int medioDPago(int precioDeAdquisicion)
+{
+    int porcentajeEfectivo = 20 + rand() % 21;   // 20 a 40% /// en teoria quiero que sea con mas beneficio el efectivo que el uso de la tarjeta
+    int porcentajeEnTarjeta = 5 + rand() % 16;   // 5 a 20%
+
+    int medio;
+    int precioFinal = precioDeAdquisicion; /// esto lo agrego por si el usuario no elije una promocion que se quede con el valor inicial
+
+    printf("1_ Si pagas en efectivo te damos un %d%% de Descuento\n", porcentajeEfectivo);
+    printf("2_ Si pagas con tarjeta te damos un recargo de %d%%\n", porcentajeEnTarjeta);
+    printf("Ingrese el medio de pago: ");
+    scanf("%d", &medio);
+
+    if(medio == 1)
+    {
+        precioFinal = precioDeAdquisicion - (precioDeAdquisicion * porcentajeEfectivo / 100);
+    }
+    else if(medio == 2)
+    {
+        precioFinal = precioDeAdquisicion + (precioDeAdquisicion * porcentajeEnTarjeta / 100);
+    }
+    else
+    {
+        printf("Opcion de medio de pago no valida\n");
+    }
+
+    return precioFinal;
 }
