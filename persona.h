@@ -7,7 +7,7 @@ typedef struct
 {
     char dni[15];
     char nombre[50];
-    char telefono[20];
+    int telefono[20];
     char direccion[30];
     char rol[15];
 } Persona;

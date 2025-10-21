@@ -16,7 +16,7 @@ Auto cargar_auto()
     scanf("%s", autos.marca);
     printf("Modelo: ");
     scanf("%s", autos.modelo);
-    printf("AÃ±o: ");
+    printf("Año: ");
     scanf("%d", &autos.anio);
     printf("Kilometros: ");
     scanf("%d", &autos.kms);
@@ -56,16 +56,16 @@ void mostrar_auto(Auto autos)
     printf("Patente: %s\n", autos.patente);
     printf("Marca: %s\n", autos.marca);
     printf("Modelo: %s\n", autos.modelo);
-    printf("AÃ±o: %d\n", autos.anio);
+    printf("Año: %d\n", autos.anio);
     printf("Kilometraje: %d\n", autos.kms);
-    printf("Precio de adquisiciÃ³n: $%.2f\n", autos.precioDeAdquisicion);
+    printf("Precio de adquisición: $%.2f\n", autos.precioDeAdquisicion);
     printf("Precio final: $%.2f\n", autos.precioFinal);
 
     printf("\n---- DATOS DEL TITULAR ----\n");
     printf("DNI: %d\n", autos.titular.dni);
     printf("Nombre: %s\n", autos.titular.nombre);
-    printf("TelÃ©fono: %s\n", autos.titular.telefono);
-    printf("DirecciÃ³n: %s\n", autos.titular.direccion);
+    printf("Teléfono: %s\n", autos.titular.telefono);
+    printf("Dirección: %s\n", autos.titular.direccion);
     printf("Rol: %s\n", autos.titular.rol);
 }
 
@@ -124,4 +124,62 @@ float medioDPago(float precioDeAdquisicion)
     printf("Precio final: $%.2f\n", precioFinal); ///
 
     return precioFinal;
+}
+
+//FUNCION 6
+Auto modificar_auto(Auto autos)
+{
+    int opcion;
+    srand(time(NULL));
+
+    do
+    {
+        printf("\n--- MODIFICAR AUTO ---\n");
+        printf("1_ Modificar marca\n");
+        printf("2_ Modificar modelo\n");
+        printf("3_ Modificar precio de adquisicion\n");
+        printf("4_ Modificar medio de pago (recalcula precio final)\n");
+        printf("0_ Salir\n");
+        printf("Seleccione una opcion: ");
+        scanf("%d", &opcion);
+
+        switch(opcion)
+        {
+        case 1:
+            printf("Ingrese nueva marca: ");
+            fflush(stdin);
+            gets(autos.marca);
+            printf("Marca modificada con exito.\n");
+            break;
+
+        case 2:
+            printf("Ingrese nuevo modelo: ");
+            fflush(stdin);
+            gets(autos.modelo);
+            printf("Modelo modificado con exito.\n");
+            break;
+
+        case 3:
+            printf("Ingrese nuevo precio de adquisicion: ");
+            scanf("%f", &autos.precioDeAdquisicion);
+            printf("Precio de adquisicion modificado.\n");
+            break;
+
+        case 4:
+            autos.precioFinal = medioDPago(autos.precioDeAdquisicion);
+            printf("Medio de pago actualizado. Nuevo precio final: $%f\n", autos.precioFinal);
+            break;
+
+        case 0:
+            printf("Saliendo del menu de modificacion...\n");
+            break;
+
+        default:
+            printf("Opcion invalida.\n");
+            break;
+        }
+
+    } while(opcion != 0);
+
+    return autos;
 }

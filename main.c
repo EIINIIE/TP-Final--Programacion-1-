@@ -28,9 +28,10 @@ int main()
         printf("\n-------------------------------------------------\n");
         printf("     SISTEMA DE USUARIOS - COMPANIA DE AUTOS UNT \n");
         printf("---------------------------------------------------\n\n");
-        printf("1. Iniciar sesión\n");
+        printf("1. Iniciar sesion\n");
         printf("2. Registrarse\n");
         printf("3. Cargar autos manualmente\n");
+        printf("4. Mostrar Autos auto\n");
         printf("0. Salir\n");
         printf("Elija una opcion: ");
         scanf("%d", &opcion);
@@ -57,6 +58,12 @@ int main()
         case 3:
             agregar_autos();
             break;
+
+        case 4:
+    mostrar_autos(ARCHIVO_AUTOS);
+
+            break;
+
         default:
             printf("Opción no válida\n");
             break;

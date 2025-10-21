@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1761006224 source:c:\users\usuario\desktop\tp_final_1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"usuario.h"
+	"persona.h"
+	"auto.h"
+
+1760992302 c:\users\usuario\desktop\tp_final_1\usuario.h
+
+1761003160 c:\users\usuario\desktop\tp_final_1\persona.h
+
+1761007584 c:\users\usuario\desktop\tp_final_1\auto.h
+	"persona.h"
+
+1761000978 source:c:\users\usuario\desktop\tp_final_1\persona.c
+	<stdio.h>
+	<string.h>
+	"persona.h"
+
+1761000977 source:c:\users\usuario\desktop\tp_final_1\usuario.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"usuario.h"
+
+1761007333 source:c:\users\usuario\desktop\tp_final_1\auto.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"auto.h"
+	"persona.h"
+
