@@ -16,16 +16,17 @@ typedef struct
     int kms;
     Persona titular; // Titular del auto
     float precioDeAdquisicion;
+    float precioFinal;
 } Auto;
 
 
 // ------- Prototipos -------
 Auto cargar_auto();
 void agregar_autos();
-void mostrar_auto(Auto a);
+void mostrar_auto(Auto autos);
 void mostrar_autos(char archivo[]);
 float medioDPago(float precioDeAdquisicion);
-
+Auto modificar_auto();
 
 #endif // AUTO_H_INCLUDED
 ///Esto va al final porque #endif es el cierre de una condición
