@@ -3,7 +3,7 @@
 #include <string.h> /// esto no se si sacarlo
 #include <time.h> // Para números random
 
-#define ARCHIVO_CLIENTES "clientes.bin"*/ /// lo pongo para ver
+#define ARCHIVO_CLIENTES "clientes.bin" /// lo pongo para ver
 #define ARCHIVO_AUTOS "autos.bin" /// lo pongo para ver
 
 

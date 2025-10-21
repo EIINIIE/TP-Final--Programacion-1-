@@ -41,14 +41,14 @@
 
 1761071197 c:\users\usuario\desktop\tp-final--programacion-1-\persona.h
 
-1761068739 source:c:\users\usuario\desktop\tp-final--programacion-1-\auto.c
+1761071197 source:c:\users\usuario\desktop\tp-final--programacion-1-\auto.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	"auto.h"
 	"persona.h"
 
-1761067684 c:\users\usuario\desktop\tp-final--programacion-1-\auto.h
+1761071197 c:\users\usuario\desktop\tp-final--programacion-1-\auto.h
 	"persona.h"
 
 1761067684 source:c:\users\usuario\desktop\tp-final--programacion-1-\main.c
@@ -62,7 +62,7 @@
 
 1760992302 c:\users\usuario\desktop\tp-final--programacion-1-\usuario.h
 
-1761067684 source:c:\users\usuario\desktop\tp-final--programacion-1-\usuario.c
+1761071197 source:c:\users\usuario\desktop\tp-final--programacion-1-\usuario.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
