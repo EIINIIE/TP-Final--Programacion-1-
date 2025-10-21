@@ -1,7 +1,6 @@
 #ifndef PERSONA_H_INCLUDED
 #define PERSONA_H_INCLUDED
 
-
 // ------- Estructura Persona -------
 typedef struct
 {

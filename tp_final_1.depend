@@ -34,14 +34,14 @@
 	"auto.h"
 	"persona.h"
 
-1761013397 source:c:\users\usuario\desktop\tp-final--programacion-1-\persona.c
+1761070704 source:c:\users\usuario\desktop\tp-final--programacion-1-\persona.c
 	<stdio.h>
 	<string.h>
 	"persona.h"
 
-1761003160 c:\users\usuario\desktop\tp-final--programacion-1-\persona.h
+1761071197 c:\users\usuario\desktop\tp-final--programacion-1-\persona.h
 
-1761067684 source:c:\users\usuario\desktop\tp-final--programacion-1-\auto.c
+1761068739 source:c:\users\usuario\desktop\tp-final--programacion-1-\auto.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>

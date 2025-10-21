@@ -23,7 +23,7 @@ Auto cargar_auto()
     printf("Precio: ");
     scanf("%f", &autos.precioDeAdquisicion);
 
-autos.precioFinal = medioDPago(autos.precioDeAdquisicion);
+    autos.precioFinal = medioDPago(autos.precioDeAdquisicion);
 
     printf("Precio original: $%.2f\n", autos.precioDeAdquisicion);
     printf("Precio final: $%.2f\n", autos.precioFinal);
@@ -107,13 +107,11 @@ float medioDPago(float precioDeAdquisicion)
     {
         resultado = (precioDeAdquisicion * porcentajeEfectivo) / 100.0; ///
         precioFinal = precioDeAdquisicion - resultado; ///
-        printf("\nDescuento aplicado: $%.2f\n", resultado); ///
     }
     else if(medio == 2)
     {
         resultado = (precioDeAdquisicion * porcentajeEnTarjeta) / 100.0; ///
         precioFinal = precioDeAdquisicion + resultado; ///
-        printf("\nRecargo aplicado: $%.2f\n", resultado); ///
     }
     else
     {

@@ -4,8 +4,7 @@
 #include "usuario.h"
 #include "auto.h"
 
-///#define ARCHIVO_CLIENTES "clientes.bin" /// esto no se si tendria que ir
-
+#define ARCHIVO_CLIENTES "clientes.bin"
 
 // FUNCION 1
 int usuario_existente(char correo[])

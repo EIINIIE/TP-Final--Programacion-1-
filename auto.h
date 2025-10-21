@@ -26,7 +26,6 @@ void agregar_autos();
 void mostrar_auto(Auto autos);
 void mostrar_todos_autos(char archivo[]);
 float medioDPago(float precioDeAdquisicion);
-Auto modificar_auto();
 
 #endif // AUTO_H_INCLUDED
 ///Esto va al final porque #endif es el cierre de una condición
