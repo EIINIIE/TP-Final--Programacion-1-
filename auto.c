@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include "auto.h"
 #include "persona.h"
 
@@ -23,10 +22,10 @@ Auto cargar_auto()
     printf("Precio: ");
     scanf("%f", &autos.precioDeAdquisicion);
 
-autos.precioFinal = medioDPago(autos.precioDeAdquisicion);
+ autos.precioDeAdquisicion = medioDPago(autos.precioDeAdquisicion);
 
-    printf("Precio original: $%.2f\n", autos.precioDeAdquisicion);
-    printf("Precio final: $%.2f\n", autos.precioFinal);
+    printf("Precio original: $%d\n", autos.precioDeAdquisicion);
+    printf("Precio final: $%d\n", autos.precioFinal);
 
     return autos;
 }
@@ -50,25 +49,23 @@ void agregar_autos()
 }
 
 // FUNCION 3
-void mostrar_auto(Auto autos)
+void mostrar_auto(Auto a)
 {
-    printf("---- DATOS DEL VEHICULO ----\n");
-    printf("Patente: %s\n", autos.patente);
-    printf("Marca: %s\n", autos.marca);
-    printf("Modelo: %s\n", autos.modelo);
-    printf("Año: %d\n", autos.anio);
-    printf("Kilometraje: %d\n", autos.kms);
-    printf("Precio de adquisición: $%.2f\n", autos.precioDeAdquisicion);
-    printf("Precio final: $%.2f\n", autos.precioFinal);
+    printf("----DATOS DEL VEHICULO----\n");
+    printf("Patente: %s\n", a.patente);
+    printf("Marca: %s\n", a.marca);
+    printf("Modelo: %s\n", a.modelo);
+    printf("Año: %d\n", a.anio);
+    printf("Kilometraje: %d\n", a.kms);
+    printf("Precio de adquisición: $%.2f\n", a.precioDeAdquisicion);
 
-    printf("\n---- DATOS DEL TITULAR ----\n");
-    printf("DNI: %d\n", autos.titular.dni);
-    printf("Nombre: %s\n", autos.titular.nombre);
-    printf("Teléfono: %s\n", autos.titular.telefono);
-    printf("Dirección: %s\n", autos.titular.direccion);
-    printf("Rol: %s\n", autos.titular.rol);
+    printf("----DATOS DEL TITULAR----\n");
+    printf("DNI: %s\n", a.titular.dni);
+    printf("Nombre: %s\n", a.titular.nombre);
+    printf("Teléfono: %s\n", a.titular.telefono);
+    printf("Dirección: %s\n", a.titular.direccion);
+    printf("Rol: %s\n", a.titular.rol);
 }
-
 
 // FUNCION 4
 void mostrar_autos(char archivo[])
@@ -83,20 +80,20 @@ void mostrar_autos(char archivo[])
     Auto a;
     while(fread(&a, sizeof(Auto), 1, file) == 1)
     {
-        mostrar_auto(a); // muestra un auto con sus datos
+        mostrar_auto(a);
         printf("\n");
     }
     fclose(file);
 }
 
 //FUNCION 5
-float medioDPago(float precioDeAdquisicion)
+int medioDPago(int precioDeAdquisicion)
 {
     int porcentajeEfectivo = 20 + rand() % 21;   // 20 a 40%
     int porcentajeEnTarjeta = 5 + rand() % 16;   // 5 a 20%
     int medio;
-    float precioFinal = precioDeAdquisicion; ///
-    float resultado = 0; // <- para guardar el monto del descuento o recargo ///
+    int precioFinal = precioDeAdquisicion;
+    float diferencia = 0; // <- para guardar el monto del descuento o recargo
 
     printf("\n--- MEDIO DE PAGO ---\n");
     printf("1_ Si pagas en efectivo te damos un %d%% de descuento\n", porcentajeEfectivo);
@@ -106,22 +103,22 @@ float medioDPago(float precioDeAdquisicion)
 
     if(medio == 1)
     {
-        resultado = (precioDeAdquisicion * porcentajeEfectivo) / 100.0; ///
-        precioFinal = precioDeAdquisicion - resultado; ///
-        printf("\nDescuento aplicado: $%.2f\n", resultado); ///
+        diferencia = (precioDeAdquisicion * porcentajeEfectivo) / 100.0;
+        precioFinal = precioDeAdquisicion - diferencia;
+        printf("\nDescuento aplicado: $%.2f\n", diferencia);
     }
     else if(medio == 2)
     {
-        resultado = (precioDeAdquisicion * porcentajeEnTarjeta) / 100.0; ///
-        precioFinal = precioDeAdquisicion + resultado; ///
-        printf("\nRecargo aplicado: $%.2f\n", resultado); ///
+        diferencia = (precioDeAdquisicion * porcentajeEnTarjeta) / 100.0;
+        precioFinal = precioDeAdquisicion + diferencia;
+        printf("\nRecargo aplicado: $%.2f\n", diferencia);
     }
     else
     {
         printf("Opcion no valida, se mantiene el precio original.\n");
     }
 
-    printf("Precio final: $%.2f\n", precioFinal); ///
+    printf("Precio final: $%d\n", precioFinal);
 
     return precioFinal;
 }
@@ -161,13 +158,13 @@ Auto modificar_auto(Auto autos)
 
         case 3:
             printf("Ingrese nuevo precio de adquisicion: ");
-            scanf("%f", &autos.precioDeAdquisicion);
+            scanf("%d", &autos.precioDeAdquisicion);
             printf("Precio de adquisicion modificado.\n");
             break;
 
         case 4:
             autos.precioFinal = medioDPago(autos.precioDeAdquisicion);
-            printf("Medio de pago actualizado. Nuevo precio final: $%f\n", autos.precioFinal);
+            printf("Medio de pago actualizado. Nuevo precio final: $%d\n", autos.precioFinal);
             break;
 
         case 0:

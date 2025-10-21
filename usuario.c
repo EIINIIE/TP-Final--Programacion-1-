@@ -34,12 +34,12 @@ stUsuario registro_Usuario()
 
     if(usuario_existente(nuevo.correo))
     {
-        printf("Este usuario ya está registrado\n");
+        printf("Este usuario ya estÃ¡ registrado\n");
         nuevo.dni = -1;
         return nuevo;
     }
 
-    printf("Ingrese su contraseña: ");
+    printf("Ingrese su contraseÃ±a: ");
     scanf("%49s", nuevo.contrasena);
 
     printf("Ingrese su DNI: ");
@@ -48,7 +48,7 @@ stUsuario registro_Usuario()
     printf("Fecha de nacimiento (dd mm aaaa): ");
     scanf("%d %d %d", &nuevo.dia, &nuevo.mes, &nuevo.anios);
 
-    printf("\nUsuario registrado con éxito\n");
+    printf("\nUsuario registrado con Ã©xito\n");
     return nuevo;
 }
 
@@ -94,20 +94,45 @@ void iniciarSesion()
     printf("\n------ INICIAR SESION ------\n");
     printf("Correo: ");
     scanf("%s", correo);
-    printf("Contraseña: ");
+    printf("Contrasena: ");
     scanf("%s", contrasena);
     system("cls");
 
     if(verificar_Usuario(correo, contrasena))
     {
         printf("\nSesion iniciada correctamente\n\n");
-        /// ACÁ VA EL MENÚ INTERNO (todavía no lo copié)
+
+        int opcion_sesion;
+        do
+        {
+            printf("--------------------------------------------------\n");
+            printf("1. Modelos de autos disponibles\n");
+            printf("2. Agregar autos manualmente\n");
+            printf("0. Salir\n");
+            printf("Elija una opcion: ");
+            scanf("%d", &opcion_sesion);
+            system("cls");
+
+            switch(opcion_sesion)
+            {
+            case 0:
+                printf("Saliendo...\n");
+                break;
+            case 1:
+                mostrar_autos(ARCHIVO_AUTOS);
+                break;
+            case 2:
+                agregar_autos();
+                break;
+            default:
+                printf("Opcion no valida\n");
+                break;
+            }
+        }
+        while(opcion_sesion != 0);
     }
     else
     {
-        printf("\nCorreo o contraseña incorrectos\n");
+        printf("\nCorreo o contraseï¿½a incorrectos\n");
     }
 }
-
-
-

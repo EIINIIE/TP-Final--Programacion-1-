@@ -16,16 +16,16 @@ typedef struct
     int kms;
     Persona titular; // Titular del auto
     float precioDeAdquisicion;
-    float precioFinal;
+    int precioFinal;
 } Auto;
 
 
 // ------- Prototipos -------
 Auto cargar_auto();
 void agregar_autos();
-void mostrar_auto(Auto autos);
+void mostrar_auto(Auto a);
 void mostrar_autos(char archivo[]);
-float medioDPago(float precioDeAdquisicion);
+int medioDPago(int precioDeAdquisicion);
 Auto modificar_auto();
 
 #endif // AUTO_H_INCLUDED
