@@ -31,7 +31,7 @@ int main()
         printf("1. Iniciar sesion\n");
         printf("2. Registrarse\n");
         printf("3. Cargar autos manualmente\n");
-        printf("4. Modificar auto\n");
+        printf("4. Mostrar Autos auto\n");
         printf("0. Salir\n");
         printf("Elija una opcion: ");
         scanf("%d", &opcion);
@@ -60,8 +60,8 @@ int main()
             break;
 
         case 4:
-            mostrar_auto(Auto a);
-            modificar_auto();
+    mostrar_autos(ARCHIVO_AUTOS);
+
             break;
 
         default:
