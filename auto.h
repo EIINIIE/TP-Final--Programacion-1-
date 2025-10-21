@@ -24,7 +24,7 @@ Auto cargar_auto();
 void agregar_autos();
 void mostrar_auto(Auto a);
 void mostrar_autos(char archivo[]);
-int medioDPago(int precioDeAdquisicion);
+float medioDPago(float precioDeAdquisicion);
 
 
 #endif // AUTO_H_INCLUDED
