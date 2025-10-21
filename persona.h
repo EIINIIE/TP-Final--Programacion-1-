@@ -5,9 +5,9 @@
 // ------- Estructura Persona -------
 typedef struct
 {
-    char dni[15];
+    char dni[15]; /// puede tener puntos, guines y ceros iniciales (esto lo agrego para que no alla errores)
     char nombre[50];
-    int telefono[20];
+    char telefono[20]; /// por lo que se en entero tien limites por eso lo hacemos tipo char tambien porque puede llevar simbolos
     char direccion[30];
     char rol[15];
 } Persona;

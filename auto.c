@@ -50,23 +50,23 @@ void agregar_autos()
 }
 
 // FUNCION 3
-void mostrar_auto(Auto autos)
+void mostrar_auto(Auto a)
 {
     printf("---- DATOS DEL VEHICULO ----\n");
-    printf("Patente: %s\n", autos.patente);
-    printf("Marca: %s\n", autos.marca);
-    printf("Modelo: %s\n", autos.modelo);
-    printf("Año: %d\n", autos.anio);
-    printf("Kilometraje: %d\n", autos.kms);
-    printf("Precio de adquisición: $%.2f\n", autos.precioDeAdquisicion);
-    printf("Precio final: $%.2f\n", autos.precioFinal);
+    printf("Patente: %s\n", a.patente);
+    printf("Marca: %s\n", a.marca);
+    printf("Modelo: %s\n", a.modelo);
+    printf("Año: %d\n", a.anio);
+    printf("Kilometraje: %d\n", a.kms);
+    printf("Precio de adquisición: $%.2f\n", a.precioDeAdquisicion);
+    printf("Precio final: $%.2f\n", a.precioFinal);
 
     printf("\n---- DATOS DEL TITULAR ----\n");
-    printf("DNI: %d\n", autos.titular.dni);
-    printf("Nombre: %s\n", autos.titular.nombre);
-    printf("Teléfono: %s\n", autos.titular.telefono);
-    printf("Dirección: %s\n", autos.titular.direccion);
-    printf("Rol: %s\n", autos.titular.rol);
+    printf("DNI: %s\n", a.titular.dni);
+    printf("Nombre: %s\n", a.titular.nombre);
+    printf("Teléfono: %s\n", a.titular.telefono);
+    printf("Dirección: %s\n", a.titular.direccion);
+    printf("Rol: %s\n", a.titular.rol);
 }
 
 // FUNCION 4
