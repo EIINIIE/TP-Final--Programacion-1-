@@ -2,6 +2,10 @@
 #include <string.h>
 #include <stdlib.h>
 #include "usuario.h"
+#include "auto.h"
+
+///#define ARCHIVO_CLIENTES "clientes.bin" /// esto no se si tendria que ir
+
 
 // FUNCION 1
 int usuario_existente(char correo[])

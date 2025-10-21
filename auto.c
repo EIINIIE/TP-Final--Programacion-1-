@@ -69,7 +69,6 @@ void mostrar_auto(Auto autos)
     printf("Rol: %s\n", autos.titular.rol);
 }
 
-
 // FUNCION 4
 void mostrar_autos(char archivo[])
 {

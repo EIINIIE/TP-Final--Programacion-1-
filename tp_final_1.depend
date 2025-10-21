@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1761006224 source:c:\users\usuario\desktop\tp_final_1\main.c
+1761012826 source:c:\users\usuario\desktop\tp_final_1\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -15,18 +15,19 @@
 1761007584 c:\users\usuario\desktop\tp_final_1\auto.h
 	"persona.h"
 
-1761000978 source:c:\users\usuario\desktop\tp_final_1\persona.c
+1761013397 source:c:\users\usuario\desktop\tp_final_1\persona.c
 	<stdio.h>
 	<string.h>
 	"persona.h"
 
-1761000977 source:c:\users\usuario\desktop\tp_final_1\usuario.c
+1761013397 source:c:\users\usuario\desktop\tp_final_1\usuario.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
 	"usuario.h"
+	"auto.h"
 
-1761009933 source:c:\users\usuario\desktop\tp_final_1\auto.c
+1761013411 source:c:\users\usuario\desktop\tp_final_1\auto.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
