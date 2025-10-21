@@ -122,7 +122,7 @@ void iniciarSesion()
                 printf("Saliendo...\n");
                 break;
             case 1:
-                mostrar_autos(ARCHIVO_AUTOS);
+                mostrar_todos_autos(ARCHIVO_AUTOS);
                 break;
             case 2:
                 agregar_autos();

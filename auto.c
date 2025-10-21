@@ -70,7 +70,7 @@ void mostrar_auto(Auto autos)
 }
 
 // FUNCION 4
-void mostrar_autos(char archivo[])
+void mostrar_todos_autos(char archivo[])
 {
     FILE* file = fopen(archivo, "rb");
     if(file == NULL)

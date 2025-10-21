@@ -24,7 +24,7 @@ typedef struct
 Auto cargar_auto();
 void agregar_autos();
 void mostrar_auto(Auto autos);
-void mostrar_autos(char archivo[]);
+void mostrar_todos_autos(char archivo[]);
 float medioDPago(float precioDeAdquisicion);
 Auto modificar_auto();
 
