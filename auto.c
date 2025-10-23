@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "auto.h"
-#include "persona.h"
+#include "cliente.h"
 
 // FUNCION 1
 Auto cargar_auto()

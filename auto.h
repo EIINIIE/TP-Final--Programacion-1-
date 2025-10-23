@@ -2,7 +2,7 @@
 #define AUTO_H_INCLUDED
 
 
-#include "persona.h"  // Incluye Persona porque Auto tiene un titular
+#include "cliente.h" // Incluye cliente porque Auto tiene un titular
 
 #define ARCHIVO_AUTOS "autos.bin"
 
@@ -14,7 +14,7 @@ typedef struct
     char modelo[20];
     int anio;
     int kms;
-    Persona titular; // Titular del auto
+    Cliente titular; // Titular del auto
     float precioDeAdquisicion;
     float precioFinal;
 } Auto;

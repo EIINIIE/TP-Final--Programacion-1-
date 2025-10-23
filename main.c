@@ -10,8 +10,8 @@
 /// librerias agregadas
 /// usuario
 #include "usuario.h"
-/// persona
-#include "persona.h"
+/// Cliente
+#include "cliente.h"
 /// auto
 #include "auto.h"
 
@@ -31,7 +31,7 @@ int main()
         printf("1. Iniciar sesion\n");
         printf("2. Registrarse\n");
         printf("3. Cargar autos manualmente\n");
-        printf("4. \n");
+        printf("4. ayuda?\n");
         printf("0. Salir\n");
         printf("Elija una opcion: ");
         scanf("%d", &opcion);
@@ -60,6 +60,8 @@ int main()
             break;
 
         case 4:
+            printf ("\n");
+
 
             break;
 
