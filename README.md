@@ -1,2 +1,2 @@
 Preguntar al profe que cuando creó una librería? al compilarlo aparece esto "no such file or directory" qué hacer?
-
+El mensaje “no such file or directory” aparece cuando el compilador no encuentra la librería o archivo que se está intentando incluir. Esto puede pasar si el archivo no está en la carpeta del proyecto, si la ruta del #include está mal escrita o si la librería no está instalada en el sistema.
