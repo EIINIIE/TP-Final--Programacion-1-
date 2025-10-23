@@ -6,3 +6,4 @@
 
 #define ARCHIVO_AUTOS "autos.bin" /// lo vamos a usar
 
+// FUNCION 1

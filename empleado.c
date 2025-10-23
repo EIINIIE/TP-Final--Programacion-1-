@@ -2,4 +2,4 @@
 #include <string.h>
 #include "empleado.h"
 
-
+// FUNCION 1

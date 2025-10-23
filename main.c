@@ -31,6 +31,7 @@ int main()
         printf("1. Iniciar sesion\n");
         printf("2. Registrarse\n");
         printf("3. Cargar autos manualmente\n");
+        printf("\n");
         printf("4. ayuda?\n");
         printf("0. Salir\n");
         printf("Elija una opcion: ");

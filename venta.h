@@ -2,7 +2,9 @@
 #define VENTA_H_INCLUDED
 #include "fecha.h"
 
-typedef struct stVenta {
+// ------- Estructura Venta -------
+typedef struct stVenta
+{
     Fecha fecha;
     char patenteAutoVendido[11];
     float precioVenta;
@@ -11,6 +13,7 @@ typedef struct stVenta {
     char dniVendedor[15];  // Usar char para mantener coherencia con las estructuras
 } Venta;
 
+// ------- Prototipo -------
 
 
 #endif // VENTA_H_INCLUDED

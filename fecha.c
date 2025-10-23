@@ -2,17 +2,16 @@
 #include <string.h>
 #include "fecha.h"
 
-
+// FUNCION 1
 void cargar_Fecha()
 {
     Fecha f;
-
     printf("\n(dd/mm/aaaa): ");
     scanf("%d %d %d", &f.dia, &f.mes, &f.anio);
-
 }
 
+// FUNCION 2
 void mostrar_Fecha(Fecha f)
 {
-    printf("%02d/%02d/%04d\n", f.dia, f.mes, f.anio);
+    printf("%d/%d/%d\n", f.dia, f.mes, f.anio);
 }
