@@ -1,5 +1,2 @@
-¿preguntar al profe que cuamdo creo una libreria?
-al compilarlo aparece esto "no such file or directory"
-que hacer?
-
+Preguntar al profe que cuando creó una librería? al compilarlo aparece esto "no such file or directory" qué hacer?
 
