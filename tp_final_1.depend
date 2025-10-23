@@ -81,19 +81,28 @@
 	<string.h>
 	"empleado.h"
 
-1761249518 c:\users\usuario\desktop\tp-final--programacion-1-\empleado.h
+1761249791 c:\users\usuario\desktop\tp-final--programacion-1-\empleado.h
 
 1761249518 source:c:\users\usuario\desktop\tp-final--programacion-1-\fecha.c
 	<stdio.h>
 	<string.h>
 	"fecha.h"
 
-1761249518 c:\users\usuario\desktop\tp-final--programacion-1-\fecha.h
+1761249791 c:\users\usuario\desktop\tp-final--programacion-1-\fecha.h
 
 1761249518 source:c:\users\usuario\desktop\tp-final--programacion-1-\gerente.c
 	<stdio.h>
 	<string.h>
 	"gerente.h"
 
-1761249518 c:\users\usuario\desktop\tp-final--programacion-1-\gerente.h
+1761249791 c:\users\usuario\desktop\tp-final--programacion-1-\gerente.h
+
+1761249518 source:c:\users\usuario\desktop\tp-final--programacion-1-\venta.c
+	<stdio.h>
+	<string.h>
+	"venta.h"
+	"fecha.h"
+
+1761249791 c:\users\usuario\desktop\tp-final--programacion-1-\venta.h
+	"fecha.h"
 

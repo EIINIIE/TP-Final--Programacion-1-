@@ -7,7 +7,7 @@ typedef struct stFecha {
     int anio;
 } Fecha;
 
-
+void cargar_Fecha();
 
 #endif // FECHA_H_INCLUDED
 ///Esto va al final porque #endif es el cierre de una condición
