@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "auto.h"
+#include "auto_cliente.h"
 #include "cliente.h"
 
 /// FUNCION 1
