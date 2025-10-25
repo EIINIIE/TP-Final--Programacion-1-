@@ -74,7 +74,7 @@ void guardar_Usuario(stUsuario usuario)
 }
 
 /// FUNCION 4
-int verificar_Usuario(char correo[], char contrasena[])
+verificacion_de_Usuario(char correo[], char contrasena[])
 {
     FILE *file = fopen(ARCHIVO_CLIENTES, "rb");
     if(file == NULL)
@@ -211,4 +211,6 @@ void iniciarSesion()
     }
 }
 
+<<<<<<< HEAD
 */
+

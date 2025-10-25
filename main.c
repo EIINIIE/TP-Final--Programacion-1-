@@ -51,12 +51,7 @@ int main()
             break;
         case 1:
 
-            if(iniciarSesion_empleado())
-            {
-                funcion_iniciarSesion_empleado();
-
-            }
-
+             funcion_iniciarSesion_empleado();
 
 
             break;

@@ -88,6 +88,12 @@ void mostrar_todos_autos(char archivo[])
     fclose(file);
 }
 
+
+///---------------------------------------------------------------------------------------------------------------------
+
+/// esta funcion va en el archivo de pagos ( hay q agregar un archivo de paogs.c y.h para esta funcion )
+
+
 ///FUNCION 5
 float medioDPago(float precioDeAdquisicion)
 {
