@@ -14,7 +14,7 @@
 #include "cliente.h"
 /// auto
 #include "auto.h"
-/// empleado
+/// empleado.
 #include "empleado.h"
 
 
