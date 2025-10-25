@@ -33,7 +33,7 @@ int main()
         printf("3. ayuda?\n");
         printf("0. Salir\n");
 
-
+        printf("----------------------------------------------------\n");
 
         printf("\n");
         printf("\n");
