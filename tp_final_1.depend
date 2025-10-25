@@ -258,3 +258,79 @@
 1761432756 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\auto_cliente.h
 	"cliente.h"
 
+1761432425 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\auto_cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"auto_cliente.h"
+	"cliente.h"
+
+1761432895 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\auto_cliente.h
+	"cliente.h"
+
+1761248097 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\cliente.h
+
+1761405014 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\cliente.c
+	<stdio.h>
+	<string.h>
+	"cliente.h"
+
+1761432425 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\empleado.c
+	<stdio.h>
+	<string.h>
+	"empleado.h"
+	<stdlib.h>
+	"auto_cliente.h"
+
+1761430553 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\empleado.h
+
+1761430553 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\fecha.c
+	<stdio.h>
+	<string.h>
+	"fecha.h"
+
+1761257485 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\fecha.h
+
+1761257485 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\gerente.c
+	<stdio.h>
+	<string.h>
+	"gerente.h"
+
+1761405014 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\gerente.h
+
+1761432819 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"usuario.h"
+	"cliente.h"
+	"auto.h"
+	"empleado.h"
+
+1761431857 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\usuario.h
+
+1761432895 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\auto.h
+	"cliente.h"
+
+1761431857 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\usuario.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"usuario.h"
+	"auto.h"
+
+1761432425 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\venta.c
+	<stdio.h>
+	<string.h>
+	"venta.h"
+	"fecha.h"
+	"auto_cliente.h"
+
+1761257485 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\venta.h
+	"fecha.h"
+
+1761433483 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\autos_disponibles.c
+
+1761433414 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\pagos.c
+
