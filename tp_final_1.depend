@@ -51,7 +51,7 @@
 1761248097 c:\users\usuario\desktop\tp-final--programacion-1-\auto.h
 	"cliente.h"
 
-1761405014 source:c:\users\usuario\desktop\tp-final--programacion-1-\main.c
+1761431857 source:c:\users\usuario\desktop\tp-final--programacion-1-\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -59,10 +59,11 @@
 	"usuario.h"
 	"cliente.h"
 	"auto.h"
+	"empleado.h"
 
-1760992302 c:\users\usuario\desktop\tp-final--programacion-1-\usuario.h
+1761431857 c:\users\usuario\desktop\tp-final--programacion-1-\usuario.h
 
-1761071197 source:c:\users\usuario\desktop\tp-final--programacion-1-\usuario.c
+1761431857 source:c:\users\usuario\desktop\tp-final--programacion-1-\usuario.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
@@ -76,14 +77,16 @@
 	<string.h>
 	"cliente.h"
 
-1761405014 source:c:\users\usuario\desktop\tp-final--programacion-1-\empleado.c
+1761430553 source:c:\users\usuario\desktop\tp-final--programacion-1-\empleado.c
 	<stdio.h>
 	<string.h>
 	"empleado.h"
+	<stdlib.h>
+	"auto.h"
 
-1761405014 c:\users\usuario\desktop\tp-final--programacion-1-\empleado.h
+1761430553 c:\users\usuario\desktop\tp-final--programacion-1-\empleado.h
 
-1761256936 source:c:\users\usuario\desktop\tp-final--programacion-1-\fecha.c
+1761430553 source:c:\users\usuario\desktop\tp-final--programacion-1-\fecha.c
 	<stdio.h>
 	<string.h>
 	"fecha.h"
