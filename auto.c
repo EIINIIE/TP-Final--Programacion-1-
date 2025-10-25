@@ -4,12 +4,12 @@
 #include "auto.h"
 #include "cliente.h"
 
-// FUNCION 1
+/// FUNCION 1
 Auto cargar_auto()
 {
     Auto autos;
 
-    printf("----DATOS DEL AUTO----\n");
+    printf("----DATOS DEL AUTO DEL CLIENTE ----\n");
     printf("Patente: ");
     scanf("%s", autos.patente);
     printf("Marca: ");
@@ -31,7 +31,7 @@ Auto cargar_auto()
     return autos;
 }
 
-// FUNCION 2
+/// FUNCION 2
 void agregar_autos()
 {
     FILE* file = fopen(ARCHIVO_AUTOS, "ab");
@@ -49,7 +49,7 @@ void agregar_autos()
     printf("Auto y titular cargados correctamente\n");
 }
 
-// FUNCION 3
+/// FUNCION 3
 void mostrar_auto(Auto a)
 {
     printf("---- DATOS DEL VEHICULO ----\n");
@@ -69,7 +69,7 @@ void mostrar_auto(Auto a)
     printf("Rol: %s\n", a.titular.rol);
 }
 
-// FUNCION 4
+/// FUNCION 4
 void mostrar_todos_autos(char archivo[])
 {
     FILE* file = fopen(archivo, "rb");
@@ -88,7 +88,7 @@ void mostrar_todos_autos(char archivo[])
     fclose(file);
 }
 
-//FUNCION 5
+///FUNCION 5
 float medioDPago(float precioDeAdquisicion)
 {
     int porcentajeEfectivo = 20 + rand() % 21;   // 20 a 40%

@@ -25,15 +25,27 @@ int main()
     int opcion;
     do
     {
-        printf("\n-------------------------------------------------\n");
+        printf("\n---------------------------------------------------\n");
         printf("     SISTEMA DE USUARIOS - COMPANIA DE AUTOS UNT \n");
         printf("---------------------------------------------------\n\n");
-        printf("1. Iniciar sesion\n");
-        printf("2. Registrarse\n");
-        printf("3. Cargar autos manualmente\n");
-        printf("\n");
-        printf("4. ayuda?\n");
+        printf("1. Iniciar sesion ( Empleado )\n");
+        printf("2. Iniciar sesion ( gerente / administrador )\n");
+        printf("3. ayuda?\n");
         printf("0. Salir\n");
+
+
+
+        printf("\n");
+        printf("\n");
+        printf("\n");
+        printf("\n");
+
+        printf("2. Registrarse (este tambien lo tenemos q sacar )\n");
+        printf("3. Cargar autos manualmente ( esto no iria lo tenemos q sacar)\n");
+        printf("\n");
+        printf("\n");
+        printf("\n");
+
         printf("Elija una opcion: ");
         scanf("%d", &opcion);
         system("cls");
@@ -61,7 +73,9 @@ int main()
             break;
 
         case 4:
-            printf ("\n");
+            printf ("Sistema de ayuda : \n");
+
+            printf("a partir de aca tenemos q contar q estamos haciendo cada (archivo)");
 
 
             break;
@@ -78,6 +92,4 @@ int main()
     return 0;
 }
 
-/// Probando
-
-/// nashe
+/// Fin
