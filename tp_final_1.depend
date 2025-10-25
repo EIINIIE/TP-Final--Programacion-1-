@@ -41,7 +41,7 @@
 
 1761071197 c:\users\usuario\desktop\tp-final--programacion-1-\persona.h
 
-1761248097 source:c:\users\usuario\desktop\tp-final--programacion-1-\auto.c
+1761405014 source:c:\users\usuario\desktop\tp-final--programacion-1-\auto.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -51,7 +51,7 @@
 1761248097 c:\users\usuario\desktop\tp-final--programacion-1-\auto.h
 	"cliente.h"
 
-1761257019 source:c:\users\usuario\desktop\tp-final--programacion-1-\main.c
+1761405014 source:c:\users\usuario\desktop\tp-final--programacion-1-\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -71,17 +71,17 @@
 
 1761248097 c:\users\usuario\desktop\tp-final--programacion-1-\cliente.h
 
-1761248097 source:c:\users\usuario\desktop\tp-final--programacion-1-\cliente.c
+1761405014 source:c:\users\usuario\desktop\tp-final--programacion-1-\cliente.c
 	<stdio.h>
 	<string.h>
 	"cliente.h"
 
-1761256936 source:c:\users\usuario\desktop\tp-final--programacion-1-\empleado.c
+1761405014 source:c:\users\usuario\desktop\tp-final--programacion-1-\empleado.c
 	<stdio.h>
 	<string.h>
 	"empleado.h"
 
-1761256936 c:\users\usuario\desktop\tp-final--programacion-1-\empleado.h
+1761405014 c:\users\usuario\desktop\tp-final--programacion-1-\empleado.h
 
 1761256936 source:c:\users\usuario\desktop\tp-final--programacion-1-\fecha.c
 	<stdio.h>
@@ -90,12 +90,12 @@
 
 1761257485 c:\users\usuario\desktop\tp-final--programacion-1-\fecha.h
 
-1761256985 source:c:\users\usuario\desktop\tp-final--programacion-1-\gerente.c
+1761257485 source:c:\users\usuario\desktop\tp-final--programacion-1-\gerente.c
 	<stdio.h>
 	<string.h>
 	"gerente.h"
 
-1761256936 c:\users\usuario\desktop\tp-final--programacion-1-\gerente.h
+1761405014 c:\users\usuario\desktop\tp-final--programacion-1-\gerente.h
 
 1761256936 source:c:\users\usuario\desktop\tp-final--programacion-1-\venta.c
 	<stdio.h>
@@ -119,19 +119,21 @@
 
 1761355903 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\cliente.h
 
-1761359551 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\cliente.c
+1761400651 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\cliente.c
 	<stdio.h>
 	<string.h>
 	"cliente.h"
 
-1761355903 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\empleado.c
+1761428165 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\empleado.c
 	<stdio.h>
 	<string.h>
 	"empleado.h"
+	<stdlib.h>
+	"auto.h"
 
-1761355903 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\empleado.h
+1761427533 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\empleado.h
 
-1761355903 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\fecha.c
+1761423008 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\fecha.c
 	<stdio.h>
 	<string.h>
 	"fecha.h"
@@ -143,9 +145,9 @@
 	<string.h>
 	"gerente.h"
 
-1761355903 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\gerente.h
+1761400651 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\gerente.h
 
-1761399738 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\main.c
+1761429622 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -153,8 +155,9 @@
 	"usuario.h"
 	"cliente.h"
 	"auto.h"
+	"empleado.h"
 
-1761355903 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\usuario.h
+1761430139 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\usuario.h
 
 1761355903 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\venta.c
 	<stdio.h>
@@ -166,14 +169,10 @@
 1761355903 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\venta.h
 	"fecha.h"
 
-1761398268 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\usuario.c
+1761430139 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\usuario.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
 	"usuario.h"
 	"auto.h"
-	<stdio.h>
-	<string.h>
-	<stdlib.h>
-	"usuario.h"
 
