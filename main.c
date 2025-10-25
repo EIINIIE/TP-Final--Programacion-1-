@@ -36,15 +36,6 @@ int main()
         printf("----------------------------------------------------\n");
 
         printf("\n");
-        printf("\n");
-        printf("\n");
-        printf("\n");
-
-        printf("2. Registrarse (este tambien lo tenemos q sacar )\n");
-        printf("3. Cargar autos manualmente ( esto no iria lo tenemos q sacar)\n");
-        printf("\n");
-        printf("\n");
-        printf("\n");
 
         printf("Elija una opcion: ");
         scanf("%d", &opcion);
