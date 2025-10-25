@@ -17,5 +17,6 @@ int iniciarSesionGerente();
 
 
 
+
 #endif // GERENTE_H_INCLUDED
 ///Esto va al final porque #endif es el cierre de una condición

@@ -69,14 +69,17 @@ int main()
         break;
 
         case 3:
-            agregar_autos();
-            break;
 
-        case 4:
-            printf ("Sistema de ayuda : \n");
+             printf ("Sistema de ayuda : \n");
 
             printf("a partir de aca tenemos q contar q estamos haciendo cada (archivo)");
 
+
+            break;
+
+        case 4:
+
+            agregar_autos(); /// esto hay q sacar del lugar del main
 
             break;
 

@@ -3,9 +3,20 @@
 
 // ------- Estructura Empleado -------
 
-
+typedef struct
+{
+    char correo[50];
+    char contrasena[50];
+    int dni;
+    int dia;
+    int mes;
+    int anios;
+} stEmpreado;
 
 // ------- Prototipo -------
+int iniciarSesion_empleado();
+
+
 
 
 #endif // EMPLEADO_H_INCLUDED

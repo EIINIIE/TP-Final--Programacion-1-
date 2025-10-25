@@ -133,8 +133,8 @@ void iniciarSesion()
             printf("--------------------------------------------------\n");
             printf("1. Modelos de autos disponibles\n");
             printf("2. Agregar autos del cliente \n");
-            printf("esto no iria \n")
-            printf("-----------------------------------------------------\n")
+            printf("esto no iria \n");
+            printf("-----------------------------------------------------\n");
             printf("0. Salir\n");
             printf("Elija una opcion: ");
             scanf("%d", &opcion_sesion);
@@ -147,7 +147,7 @@ void iniciarSesion()
 
                 printf("Saliendo...\n");
 
-                return 0;
+                return ;
 
                 break;
             case 1:
@@ -158,6 +158,7 @@ void iniciarSesion()
 
                 /// ACA IRIA EL ARCHIVO Y LA FUNCION DE CARGAR DATOS DEL CLIENTE
 
+                Cliente cargar_persona();
 
 
                 break;

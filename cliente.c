@@ -2,7 +2,10 @@
 #include <string.h>
 #include "cliente.h"
 
-// FUNCION 1
+
+/// esto ya estaria
+
+/// FUNCION 1
 Cliente cargar_persona()
 {
     Cliente datos;
