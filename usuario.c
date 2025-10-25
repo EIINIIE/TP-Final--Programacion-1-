@@ -1,4 +1,3 @@
-//<<<<<<< Updated upstream
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -158,7 +157,7 @@ void iniciarSesion()
 
                 /// ACA IRIA EL ARCHIVO Y LA FUNCION DE CARGAR DATOS DEL CLIENTE
 
-                Cliente cargar_persona();
+                cargar_persona();
 
 
                 break;
@@ -166,7 +165,6 @@ void iniciarSesion()
                 printf("\n----------------------------- \n");
                 printf("   DATO DEL AUTO DEL CLIENTE \n");
                 printf("------------------------------\n\n");
-
 
                 agregar_autos();
 
@@ -177,7 +175,6 @@ void iniciarSesion()
                 printf("\n------------------- \n");
                 printf("     AUTOS DISPONIBLES \n");
                 printf("-----------------------\n\n");
-
 
                 mostrar_todos_autos(ARCHIVO_AUTOS);
 
@@ -196,6 +193,8 @@ void iniciarSesion()
                 break;
 
             case 5 :
+
+                opcion_sesion = 0;
 
                 break;
 
