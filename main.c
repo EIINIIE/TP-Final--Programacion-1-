@@ -9,11 +9,14 @@
 
 /// librerias agregadas
 /// usuario
-#include "usuario.h"
+#include "usuario.h" /// esto seria de la parte del empleado
 /// Cliente
 #include "cliente.h"
 /// auto
 #include "auto.h"
+/// empleado
+#include "empleado.h"
+
 
 /// ---------------------------------------------------------------------------------------
 
@@ -47,8 +50,18 @@ int main()
             printf("Saliendo del sistema...\n");
             break;
         case 1:
-            iniciarSesion();
+
+            if(iniciarSesion_empleado())
+            {
+                funcion_iniciarSesion_empleado();
+
+            }
+
+
+
             break;
+
+        /*
         case 2:
         {
             stUsuario nuevo = registro_Usuario();
@@ -58,19 +71,13 @@ int main()
             }
         }
         break;
-
+        */
         case 3:
 
-             printf ("Sistema de ayuda : \n");
+            printf ("Sistema de ayuda : \n");
 
             printf("a partir de aca tenemos q contar q estamos haciendo cada (archivo)");
 
-
-            break;
-
-        case 4:
-
-            agregar_autos(); /// esto hay q sacar del lugar del main
 
             break;
 

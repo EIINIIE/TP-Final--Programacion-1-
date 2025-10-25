@@ -1,3 +1,5 @@
+/*
+
 #ifndef USUARIO_H_INCLUDED
 #define USUARIO_H_INCLUDED
 
@@ -24,3 +26,4 @@ void iniciarSesion();
 
 #endif // USUARIO_H_INCLUDED
 ///Esto va al final porque #endif es el cierre de una condición
+*/

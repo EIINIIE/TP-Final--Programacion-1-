@@ -2,7 +2,7 @@
 #include <string.h>
 #include "fecha.h"
 
-// FUNCION 1
+/// FUNCION 1
 void cargar_Fecha()
 {
     Fecha f;
@@ -10,7 +10,7 @@ void cargar_Fecha()
     scanf("%d %d %d", &f.dia, &f.mes, &f.anio);
 }
 
-// FUNCION 2
+/// FUNCION 2
 void mostrar_Fecha(Fecha f)
 {
     printf("%d/%d/%d\n", f.dia, f.mes, f.anio);

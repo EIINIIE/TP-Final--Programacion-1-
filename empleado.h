@@ -11,11 +11,11 @@ typedef struct
     int dia;
     int mes;
     int anios;
-} stEmpreado;
+} stEmpleado;
 
 // ------- Prototipo -------
 int iniciarSesion_empleado();
-
+void funcion_iniciarSesion_empleado();
 
 
 
