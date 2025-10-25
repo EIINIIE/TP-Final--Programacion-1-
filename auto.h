@@ -4,7 +4,7 @@
 
 #include "cliente.h" // Incluye cliente porque Auto tiene un titular
 
-#define ARCHIVO_AUTOS "autos_cliente.bin"
+#define ARCHIVO_AUTOS "autos.bin"
 
 // ------- Estructura Auto -------
 typedef struct
