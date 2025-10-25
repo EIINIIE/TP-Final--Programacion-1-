@@ -177,3 +177,72 @@
 	<stdlib.h>
 	"usuario.h"
 
+1761428507 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\auto.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"auto.h"
+	"cliente.h"
+
+1761428507 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\auto.h
+	"cliente.h"
+
+1761428507 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\cliente.h
+
+1761428507 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\cliente.c
+	<stdio.h>
+	<string.h>
+	"cliente.h"
+
+1761428733 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\empleado.c
+	<stdio.h>
+	<string.h>
+	"empleado.h"
+	<stdlib.h>
+	"auto.h"
+
+1761428733 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\empleado.h
+
+1761428507 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\gerente.c
+	<stdio.h>
+	<string.h>
+	"gerente.h"
+
+1761428507 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\gerente.h
+
+1761428733 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"usuario.h"
+	"cliente.h"
+	"auto.h"
+	"empleado.h"
+
+1761430346 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\usuario.h
+
+1761430387 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\usuario.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"usuario.h"
+	"auto.h"
+
+1761428507 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\venta.c
+	<stdio.h>
+	<string.h>
+	"venta.h"
+	"fecha.h"
+	"auto.h"
+
+1761428507 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\venta.h
+	"fecha.h"
+
+1761428507 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\fecha.h
+
+1761428733 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\fecha.c
+	<stdio.h>
+	<string.h>
+	"fecha.h"
+
