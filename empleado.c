@@ -41,7 +41,7 @@ int iniciarSesion_empleado()
 }
 
 /// funcion 2
-int verificar_Usuario(char correo[], char contrasena[])
+int verificar_Usuario_empleado(char correo[], char contrasena[])
 {
     stEmpleado empleado;
     strcpy(empleado.correo, "empleado_123@gmail.com");
@@ -68,7 +68,7 @@ void funcion_iniciarSesion_empleado()
     scanf("%s", contrasena);
     system("cls");
 
-    if(verificar_Usuario(correo, contrasena))
+    if(verificar_Usuario_empleado(correo, contrasena))
     {
         printf("\nSesion iniciada correctamente\n\n");
 
