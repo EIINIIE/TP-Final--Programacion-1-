@@ -61,6 +61,7 @@ int main()
 
             break;
 
+            /// en el case 2 va el administrador
         /*
         case 2:
         {
