@@ -31,10 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="auto_cliente.c">
+		<Unit filename="auto.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="auto_cliente.h" />
+		<Unit filename="auto.h" />
 		<Unit filename="cliente.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -54,6 +54,10 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="pagos.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="pagos.h" />
 		<Unit filename="usuario.c">
 			<Option compilerVar="CC" />
 		</Unit>
