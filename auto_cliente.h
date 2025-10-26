@@ -1,3 +1,5 @@
+
+
 #ifndef AUTO_H_INCLUDED
 #define AUTO_H_INCLUDED
 
@@ -25,7 +27,7 @@ Auto cargar_auto();
 void agregar_autos();
 void mostrar_auto(Auto autos);
 void mostrar_todos_autos(char archivo[]);
-float medioDPago(float precioDeAdquisicion);
-
+/*float medioDPago(float precioDeAdquisicion);
+*/
 #endif // AUTO_H_INCLUDED
 ///Esto va al final porque #endif es el cierre de una condición

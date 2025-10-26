@@ -1,4 +1,3 @@
-/*
 
 #ifndef USUARIO_H_INCLUDED
 #define USUARIO_H_INCLUDED
@@ -21,10 +20,10 @@ typedef struct
 int usuario_existente(char correo[]);
 stUsuario registro_Usuario();
 void guardar_Usuario(stUsuario usuario);
-verificacion_de_Usuario(char correo[], char contrasena[]);
+int verificacion_de_Usuario(char correo[], char contrasena[]);
 void iniciarSesion();
 
 #endif // USUARIO_H_INCLUDED
 ///Esto va al final porque #endif es el cierre de una condición
 
-*/
+

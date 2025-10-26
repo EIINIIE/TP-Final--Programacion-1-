@@ -1,6 +1,3 @@
-
-/*
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -9,29 +6,29 @@
 
 #define ARCHIVO_CLIENTES "clientes.bin"
 
-/// FUNCION 1
+/// FUNCION 1: Verifica si un usuario ya existe por correo
 int usuario_existente(char correo[])
 {
     FILE* file = fopen(ARCHIVO_CLIENTES, "rb");
     if(file == NULL)
     {
         return 0;
-
     }
+
     stUsuario usuario;
     while(fread(&usuario, sizeof(stUsuario), 1, file) == 1)
     {
         if(strcmp(usuario.correo, correo) == 0)
         {
             fclose(file);
-            return 1;
+            return 1; // Existe
         }
     }
     fclose(file);
-    return 0;
+    return 0; // No existe
 }
 
-/// FUNCION 2
+/// FUNCION 2: Registrar un nuevo usuario
 stUsuario registro_Usuario()
 {
     stUsuario nuevo;
@@ -43,7 +40,7 @@ stUsuario registro_Usuario()
     if(usuario_existente(nuevo.correo))
     {
         printf("Este usuario ya está registrado\n");
-        nuevo.dni = -1;
+        nuevo.dni = -1; // Señal de error
         return nuevo;
     }
 
@@ -60,7 +57,7 @@ stUsuario registro_Usuario()
     return nuevo;
 }
 
-/// FUNCION 3
+/// FUNCION 3: Guardar usuario en archivo
 void guardar_Usuario(stUsuario usuario)
 {
     FILE *file = fopen(ARCHIVO_CLIENTES, "ab");
@@ -73,17 +70,19 @@ void guardar_Usuario(stUsuario usuario)
     fclose(file);
 }
 
-/// FUNCION 4
-verificacion_de_Usuario(char correo[], char contrasena[])
+/// FUNCION 4: Verificar si correo y contraseña coinciden
+int verificar_Usuario(char correo[], char contrasena[])
 {
     FILE *file = fopen(ARCHIVO_CLIENTES, "rb");
     if(file == NULL)
     {
         return 0;
     }
+
     stUsuario usuario;
     int encontrado = 0;
-    while(fread(&usuario, sizeof(stUsuario), 1, file) > 0)
+
+    while(fread(&usuario, sizeof(stUsuario), 1, file) == 1)
     {
         if(strcmp(usuario.correo, correo) == 0 && strcmp(usuario.contrasena, contrasena) == 0)
         {
@@ -91,19 +90,20 @@ verificacion_de_Usuario(char correo[], char contrasena[])
             break;
         }
     }
+
     fclose(file);
     return encontrado;
 }
 
-/// FUNCION 5
+/// FUNCION 5: Iniciar sesión e ingresar al menú del cliente
 void iniciarSesion()
 {
     char correo[50], contrasena[50];
     printf("\n------ INICIAR SESION ------\n");
     printf("Correo: ");
-    scanf("%s", correo);
+    scanf("%49s", correo);
     printf("Contrasena: ");
-    scanf("%s", contrasena);
+    scanf("%49s", contrasena);
     system("cls");
 
     if(verificar_Usuario(correo, contrasena))
@@ -113,90 +113,56 @@ void iniciarSesion()
         int opcion_sesion;
         do
         {
-
-            /// iria estas opciones para hacer lo otro lo q esta abajo no iria
-
             printf("-------------------------------------\n");
-
-            printf("1. Datos del cliente \n");
-            printf("2. Dato del auto del cliente \n");
-            printf("3. Autos disponibles \n");
-            printf("4. Pagos \n");
-            printf("5. Volver al inicio \n");
-            printf("0. Salir \n");
-
-
-
+            printf("1. Datos del cliente\n");
+            printf("2. Dato del auto del cliente\n");
+            printf("3. Autos disponibles\n");
+            printf("4. Pagos\n");
+            printf("5. Volver al inicio\n");
+            printf("0. Salir\n");
             printf("-------------------------------------\n");
-
-            printf("\n");
-
-            printf("Elija una opcion: ");
+            printf("\nElija una opcion: ");
             scanf("%d", &opcion_sesion);
             system("cls");
 
             switch(opcion_sesion)
             {
             case 0:
-
-
                 printf("Saliendo...\n");
+                return;
 
-                return ;
-
-                break;
             case 1:
-
-                printf("\n----------------------- \n");
-                printf("     DATOS DEL CLIENTE \n");
+                printf("\n-----------------------\n");
+                printf("     DATOS DEL CLIENTE\n");
                 printf("-------------------------\n\n");
-
-                /// ACA IRIA EL ARCHIVO Y LA FUNCION DE CARGAR DATOS DEL CLIENTE
-
-                cargar_persona();
-
-
+                cargar_persona(); // Función en otro archivo
                 break;
+
             case 2:
-                printf("\n----------------------------- \n");
-                printf("   DATO DEL AUTO DEL CLIENTE \n");
+                printf("\n-----------------------------\n");
+                printf("   DATO DEL AUTO DEL CLIENTE\n");
                 printf("------------------------------\n\n");
-
-                agregar_autos();
-
-
+                agregar_autos(); // Función en auto_cliente.c
                 break;
+
             case 3:
-
-                printf("\n------------------- \n");
-                printf("     AUTOS DISPONIBLES \n");
+                printf("\n-------------------\n");
+                printf("     AUTOS DISPONIBLES\n");
                 printf("-----------------------\n\n");
-
                 mostrar_todos_autos(ARCHIVO_AUTOS);
-
-
                 break;
 
-            case 4 :
-
-                printf("\n------------------- \n");
-                printf("     PAGOS \n");
+            case 4:
+                printf("\n-------------------\n");
+                printf("     PAGOS\n");
                 printf("-----------------------\n\n");
-
-                /// ACA IRA LA EL ARCHIVO DE PAGOS Y LA FUNCION DE LOS PAGOS
-
-
+               /* medioDPago();*/
                 break;
 
-            case 5 :
-
+            case 5:
                 printf("Volviendo al inicio...\n");
-
                 opcion_sesion = 0;
-
                 break;
-
-
 
             default:
                 printf("Opcion no valida\n");
@@ -210,7 +176,3 @@ void iniciarSesion()
         printf("\nCorreo o contrasenia incorrectos\n");
     }
 }
-
-<<<<<<< HEAD
-*/
-
