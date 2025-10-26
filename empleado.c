@@ -5,6 +5,9 @@
 
 #include "auto_cliente.h"
 
+#include "autos_disponibles.h" /// YA CARGADOS
+
+
 #define ARCHIVO_EMPLEADO "empleado.bin"
 
 /// funcion 1
@@ -13,8 +16,11 @@ int iniciarSesion_empleado()
 {
     stEmpleado empleado;
 
+
+
     strcpy(empleado.correo, "empleado_123@gmail.com");
     strcpy(empleado.contrasena, "empleado123");
+
 
     char correoIngresado[50];
     char contrasenaIngresada[50];
@@ -28,7 +34,7 @@ int iniciarSesion_empleado()
     system("cls");
 
     if (strcmp(correoIngresado, empleado.correo) == 0 &&
-        strcmp(contrasenaIngresada, empleado.contrasena) == 0)
+            strcmp(contrasenaIngresada, empleado.contrasena) == 0)
     {
         printf("Inicio de sesion exitoso!\n");
         return 1;
@@ -48,7 +54,7 @@ int verificar_Usuario_empleado(char correo[], char contrasena[])
     strcpy(empleado.contrasena, "empleado123");
 
     if (strcmp(correo, empleado.correo) == 0 &&
-        strcmp(contrasena, empleado.contrasena) == 0)
+            strcmp(contrasena, empleado.contrasena) == 0)
     {
         return 1;
     }
@@ -87,8 +93,6 @@ void funcion_iniciarSesion_empleado()
             printf("5. Volver al inicio \n");
             printf("0. Salir \n");
 
-
-
             printf("-------------------------------------\n");
 
             printf("\n");
@@ -109,9 +113,9 @@ void funcion_iniciarSesion_empleado()
                 break;
             case 1:
 
-                printf("\n----------------------- \n");
+                printf("\n------------------------ \n");
                 printf("     DATOS DEL CLIENTE \n");
-                printf("-------------------------\n\n");
+                printf("---------------------------\n\n");
 
                 /// ACA IRIA EL ARCHIVO Y LA FUNCION DE CARGAR DATOS DEL CLIENTE
 
@@ -130,12 +134,11 @@ void funcion_iniciarSesion_empleado()
                 break;
             case 3:
 
-                printf("\n------------------- \n");
+                printf("\n------------------------- \n");
                 printf("     AUTOS DISPONIBLES \n");
-                printf("-----------------------\n\n");
+                printf("---------------------------\n\n");
 
-                mostrar_todos_autos(ARCHIVO_AUTOS);
-
+                mostrar_todos_autos_disponibles();
 
                 break;
 

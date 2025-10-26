@@ -16,6 +16,8 @@
 #include "auto.h"
 /// empleado.
 #include "empleado.h"
+/// loing
+#include "LOING.h"
 
 
 /// ---------------------------------------------------------------------------------------
@@ -28,15 +30,16 @@ int main()
     int opcion;
     do
     {
+
         printf("\n---------------------------------------------------\n");
         printf("     SISTEMA DE USUARIOS - COMPANIA DE AUTOS UNT \n");
         printf("---------------------------------------------------\n\n");
-        printf("1. Iniciar sesion ( Empleado )\n");
-        printf("2. Iniciar sesion ( gerente / administrador )\n");
-        printf("3. ayuda?\n");
+        printf("1. INGRESAR \n");
         printf("0. Salir\n");
 
         printf("----------------------------------------------------\n");
+
+
 
         printf("\n");
 
@@ -51,29 +54,7 @@ int main()
             break;
         case 1:
 
-             funcion_iniciarSesion_empleado();
-
-
-            break;
-
-            /// en el case 2 va el administrador
-        /*
-        case 2:
-        {
-            stUsuario nuevo = registro_Usuario();
-            if(nuevo.dni != -1)
-            {
-                guardar_Usuario(nuevo);
-            }
-        }
-        break;
-        */
-        case 3:
-
-            printf ("Sistema de ayuda : \n");
-
-            printf("a partir de aca tenemos q contar q estamos haciendo cada (archivo)");
-
+            menu_login();
 
             break;
 
