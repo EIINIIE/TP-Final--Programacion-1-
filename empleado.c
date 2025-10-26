@@ -3,7 +3,7 @@
 #include "empleado.h"
 #include <stdlib.h>
 
-#include "auto.h"
+#include "auto_cliente.h"
 
 #define ARCHIVO_EMPLEADO "empleado.bin"
 

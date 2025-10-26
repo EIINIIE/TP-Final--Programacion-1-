@@ -1,4 +1,6 @@
-//<<<<<<< Updated upstream
+
+/*
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -7,7 +9,7 @@
 
 #define ARCHIVO_CLIENTES "clientes.bin"
 
-// FUNCION 1
+/// FUNCION 1
 int usuario_existente(char correo[])
 {
     FILE* file = fopen(ARCHIVO_CLIENTES, "rb");
@@ -121,21 +123,14 @@ void iniciarSesion()
             printf("3. Autos disponibles \n");
             printf("4. Pagos \n");
             printf("5. Volver al inicio \n");
-            printf("6. Salir \n");
+            printf("0. Salir \n");
 
 
 
             printf("-------------------------------------\n");
 
+            printf("\n");
 
-
-
-            printf("--------------------------------------------------\n");
-            printf("1. Modelos de autos disponibles\n");
-            printf("2. Agregar autos del cliente \n");
-            printf("esto no iria \n");
-            printf("-----------------------------------------------------\n");
-            printf("0. Salir\n");
             printf("Elija una opcion: ");
             scanf("%d", &opcion_sesion);
             system("cls");
@@ -152,13 +147,13 @@ void iniciarSesion()
                 break;
             case 1:
 
-                printf("\n------------------- \n");
+                printf("\n----------------------- \n");
                 printf("     DATOS DEL CLIENTE \n");
-                printf("-----------------------\n\n");
+                printf("-------------------------\n\n");
 
                 /// ACA IRIA EL ARCHIVO Y LA FUNCION DE CARGAR DATOS DEL CLIENTE
 
-                Cliente cargar_persona();
+                cargar_persona();
 
 
                 break;
@@ -166,7 +161,6 @@ void iniciarSesion()
                 printf("\n----------------------------- \n");
                 printf("   DATO DEL AUTO DEL CLIENTE \n");
                 printf("------------------------------\n\n");
-
 
                 agregar_autos();
 
@@ -177,7 +171,6 @@ void iniciarSesion()
                 printf("\n------------------- \n");
                 printf("     AUTOS DISPONIBLES \n");
                 printf("-----------------------\n\n");
-
 
                 mostrar_todos_autos(ARCHIVO_AUTOS);
 
@@ -197,6 +190,10 @@ void iniciarSesion()
 
             case 5 :
 
+                printf("Volviendo al inicio...\n");
+
+                opcion_sesion = 0;
+
                 break;
 
 
@@ -210,9 +207,10 @@ void iniciarSesion()
     }
     else
     {
-        printf("\nCorreo o contrase�a incorrectos\n");
+        printf("\nCorreo o contrasenia incorrectos\n");
     }
 }
 
-
+<<<<<<< HEAD
+*/
 
