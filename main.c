@@ -6,7 +6,6 @@
 #define ARCHIVO_CLIENTES "clientes.bin" /// lo pongo para ver
 #define ARCHIVO_AUTOS "autos.bin" /// lo pongo para ver
 
-
 /// librerias agregadas
 /// usuario
 #include "usuario.h" /// esto seria de la parte del empleado
@@ -18,8 +17,6 @@
 #include "empleado.h"
 /// loing
 #include "LOING.h"
-
-
 /// ---------------------------------------------------------------------------------------
 
 /// MAIN
@@ -38,8 +35,6 @@ int main()
         printf("0. Salir\n");
 
         printf("----------------------------------------------------\n");
-
-
 
         printf("\n");
 
@@ -71,3 +66,4 @@ int main()
 }
 
 /// Fin
+

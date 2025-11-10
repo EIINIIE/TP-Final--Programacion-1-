@@ -11,6 +11,7 @@ typedef struct
     int dia;
     int mes;
     int anios;
+    char rol[30];
 } stEmpleado;
 
 // ------- Prototipo -------

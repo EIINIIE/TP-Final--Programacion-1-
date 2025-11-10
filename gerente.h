@@ -10,13 +10,16 @@ typedef struct
     int dia;
     int mes;
     int anios;
+    char rol[50];
 } stGerente;
 
 // ------- Prototipo -------
 int iniciarSesionGerente();
-
-
-
+void menu_gerente();
+stGerente cargar_un_empleado();
+void agregar_empleado();
+void eliminar_empleado();
+void mostrar_empleados();
 
 #endif // GERENTE_H_INCLUDED
 ///Esto va al final porque #endif es el cierre de una condición

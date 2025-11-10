@@ -12,8 +12,8 @@ typedef struct
     float precio;
 } stAuto;
 
-extern stAuto autos[MAX_AUTOS];
-extern int cantidad_autos;
+extern stAuto autos[MAX_AUTOS];  /// porque pusieron este tipo de dato??? (extern)
+extern int cantidad_autos; /// porque pusieron este tipo de dato??? (extern)
 
 void mostrar_todos_autos_disponibles();
 

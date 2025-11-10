@@ -3,6 +3,9 @@
 #include "LOING.h"
 #include "usuario.h"
 #include "empleado.h"
+#include "gerente.h"
+
+#define ARCHIVO_EMPLEADO "empleado.bin"
 
 void menu_login()
 {
@@ -26,7 +29,7 @@ void menu_login()
         {
         case 1:
             printf("Iniciando sesión como EMPRESA...\n");
-            iniciarSesion_empleado(); /// función del archivo empleado.c
+            login_empresa();
             break;
 
         case 2:
@@ -80,7 +83,7 @@ void menu_login()
                 system("cls");
 
             }
-                while (opcion_cliente != 0);
+            while (opcion_cliente != 0);
         }
         break;
 
@@ -101,3 +104,67 @@ void menu_login()
     }
     while (opcion_login != 0);
 }
+
+void login_empresa()
+{
+    char correo[50];
+    char contrasena[50];
+
+    printf("----iniciar sesion empresa----\n");
+    printf("correo: ");
+    fflush(stdin);
+    gets(correo);
+    correo[strcspn(correo, "\n")] = 0;
+    printf("contrasena: ");
+    fflush(stdin);
+    gets(contrasena);
+    contrasena[strcspn(contrasena, "\n")] = 0;
+
+    system("cls");
+
+    if (strcmp(correo, "admin@gmail.com") == 0 && strcmp(contrasena, "admin101") == 0)
+    {
+        printf("Inicio de sesion exitoso - Rol: ADMINISTRADOR\n");
+        menu_gerente();
+        return;
+    }
+
+
+    FILE* file = fopen(ARCHIVO_EMPLEADO, "a+b");
+    rewind(file);
+    if (file == NULL)
+    {
+        printf("No se pudo abrir el archivo de empleados.\n");
+        return;
+    }
+
+    stEmpleado emple;
+    int encontrado = 0;
+
+    while (fread(&emple, sizeof(stEmpleado), 1, file) == 1)
+    {
+        if (strcmp(correo, emple.correo) == 0 && strcmp(contrasena, emple.contrasena) == 0)
+        {
+            encontrado = 1;
+            printf("Inicio de sesion exitoso - Rol: %s\n", emple.rol);
+
+            if (strcmp(emple.rol, "administrador") == 0)
+            {
+                menu_gerente();
+            }
+            else
+            {
+                funcion_iniciarSesion_empleado();
+            }
+            break;
+        }
+    }
+
+    fclose(file);
+
+    if (!encontrado)
+    {
+        printf("Correo o contrasena incorrectos.\n");
+    }
+}
+

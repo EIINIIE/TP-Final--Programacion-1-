@@ -1,35 +1,28 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-///---------------------------------------------------------------------------------------------------------------------
+#include "pagos.h"
 
 /// esta funcion va en el archivo de pagos ( hay q agregar un archivo de paogs.c y.h para esta funcion )
 
+/// esto habri que ubicarlo por algun lugar
 
-///FUNCION 5
-float medioDPago(float precioDeAdquisicion)
+
+
+/// float precioBase = 500000; /// ejemplo
+///float precioFinal;
+
+/// printf("\nIngrese precio de venta base: ");
+///scanf("%f", &precioBase);
+
+///precioFinal = calcularPrecioFinal(precioBase); // Aplica descuento o recargo
+
+
+///FUNCION 1
+float medioDPago(float precioBase)
 {
     int porcentajeEfectivo = 20 + rand() % 21;   // 20 a 40%
     int porcentajeEnTarjeta = 5 + rand() % 16;   // 5 a 20%
     int medio;
-    float precioFinal = precioDeAdquisicion; ///
+    float precioFinal = precioBase; ///
     float resultado = 0; // <- para guardar el monto del descuento o recargo ///
 
     printf("\n--- MEDIO DE PAGO ---\n");
@@ -40,13 +33,13 @@ float medioDPago(float precioDeAdquisicion)
 
     if(medio == 1)
     {
-        resultado = (precioDeAdquisicion * porcentajeEfectivo) / 100.0; ///
-        precioFinal = precioDeAdquisicion - resultado; ///
+        resultado = (precioBase * porcentajeEfectivo) / 100.0; ///
+        precioFinal = precioBase - resultado; ///
     }
     else if(medio == 2)
     {
-        resultado = (precioDeAdquisicion * porcentajeEnTarjeta) / 100.0; ///
-        precioFinal = precioDeAdquisicion + resultado; ///
+        resultado = (precioBase * porcentajeEnTarjeta) / 100.0; ///
+        precioFinal = precioBase + resultado; ///
     }
     else
     {
@@ -57,5 +50,3 @@ float medioDPago(float precioDeAdquisicion)
 
     return precioFinal;
 }
-
-*/
