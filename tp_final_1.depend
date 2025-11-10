@@ -377,6 +377,7 @@
 1761529067 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\pagos.h
 	"fecha.h"
 
+<<<<<<< HEAD
 1762558939 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\loing.c
 	<stdio.h>
 	<stdlib.h>
@@ -409,3 +410,5 @@
 
 1762374023 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\autos_disponibles.h
 
+=======
+>>>>>>> b2ddd3a81b1257d286a473934a0e3828d1b2623a
