@@ -24,6 +24,6 @@ int verificacion_de_Usuario(char correo[], char contrasena[]);
 void iniciarSesion();
 
 #endif // USUARIO_H_INCLUDED
-///Esto va al final porque #endif es el cierre de una condición
+///Esto va al final porque #endif es el cierre de una condiciï¿½n
 
 

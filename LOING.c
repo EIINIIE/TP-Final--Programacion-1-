@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "LOING.h"
 #include "usuario.h"
 #include "empleado.h"
 #include "gerente.h"
 
-#define ARCHIVO_EMPLEADO "empleado.bin"
+/// #define ARCHIVO_EMPLEADO "empleado.bin"
 
 void menu_login()
 {
@@ -16,20 +17,23 @@ void menu_login()
         printf("\n-------------------------------------\n");
         printf("            MENU LOGIN\n");
         printf("-------------------------------------\n");
-        printf("1. EMPRESA\n");
+        printf("1. EMPRESA\n"); /// este seria para el empleado
         printf("2. CLIENTE\n");
+        printf("3. ADMINISTRADOR\n"); /// aca nose si poner el administrador o gerente
         printf("0. Volver al inicio\n");
         printf("-------------------------------------\n");
 
-        printf("\nElija una opción: ");
+        printf("\nElija una opciï¿½n: ");
         scanf("%d", &opcion_login);
+
+        getchar(); // <-- Esta es tu correcciï¿½n, estï¿½ perfecta.
         system("cls");
 
         switch (opcion_login)
         {
         case 1:
-            printf("Iniciando sesión como EMPRESA...\n");
-            login_empresa();
+            printf("Iniciando sesiï¿½n como EMPRESA...\n");
+            login_empresa(); /// <-- Llama a la funciï¿½n Sï¿½LO de empleados
             break;
 
         case 2:
@@ -40,13 +44,14 @@ void menu_login()
                 printf("\n-------------------------------------\n");
                 printf("         ACCESO CLIENTE\n");
                 printf("---------------------------------------\n");
-                printf("1. Iniciar sesión\n");
+                printf("1. Iniciar sesiï¿½n\n");
                 printf("2. Registrarse\n");
                 printf("0. Volver atras\n");
                 printf("-------------------------------------\n");
-                printf("\nElija una opción: ");
+                printf("\nElija una opciï¿½n: ");
                 scanf("%d", &opcion_cliente);
 
+                getchar(); // <-- Esta es tu correcciï¿½n, estï¿½ perfecta.
                 system("cls");
 
                 switch (opcion_cliente)
@@ -58,7 +63,7 @@ void menu_login()
                 case 2:
                 {
                     stUsuario nuevo = registro_Usuario();
-                    if (nuevo.dni != -1) /// se registró correctamente
+                    if (nuevo.dni != -1) /// se registrï¿½ correctamente
                     {
                         guardar_Usuario(nuevo);
                         printf("\nAhora inicie sesion con su nuevo usuario.\n\n");
@@ -75,7 +80,7 @@ void menu_login()
                     break;
 
                 default:
-                    printf("Opción no válida.\n");
+                    printf("Opciï¿½n no vï¿½lida.\n");
                     break;
                 }
 
@@ -87,22 +92,58 @@ void menu_login()
         }
         break;
 
+        case 3 :
+
+            printf("Iniciado como administrador \n");
+            login_administrador();
+
+            break;
+
         case 0:
             printf("Volviendo al inicio...\n");
             break;
 
         default:
-            printf("Opción no válida.\n");
+            printf("Opciï¿½n no vï¿½lida.\n");
             break;
         }
-
 
         system("pause");
         system("cls");
 
-
     }
     while (opcion_login != 0);
+}
+
+// --- FUNCIï¿½N Sï¿½LO PARA ADMINISTRADOR ---
+void login_administrador()
+{
+    char correo[50];
+    char contrasena[50];
+
+    printf("----iniciar sesion administrador----\n");
+    printf("correo: ");
+    fflush(stdin);
+    gets(correo);
+    correo[strcspn(correo, "\n")] = 0;
+    printf("contrasena: ");
+    fflush(stdin);
+    gets(contrasena);
+    contrasena[strcspn(contrasena, "\n")] = 0;
+
+    system("cls");
+
+    // Lï¿½gica movida desde login_empresaa
+    if (strcmp(correo, "admin@gmail.com") == 0 && strcmp(contrasena, "admin101") == 0)
+    {
+        printf("Inicio de sesion exitoso - Rol: ADMINISTRADOR\n");
+        menu_gerente();
+        return;
+    }
+    else
+    {
+        printf("Correo o contrasena incorrectos.\n");
+    }
 }
 
 void login_empresa()
@@ -122,16 +163,16 @@ void login_empresa()
 
     system("cls");
 
+    /* esta logica se movio a login_administrador
     if (strcmp(correo, "admin@gmail.com") == 0 && strcmp(contrasena, "admin101") == 0)
     {
         printf("Inicio de sesion exitoso - Rol: ADMINISTRADOR\n");
         menu_gerente();
         return;
     }
-
-
-    FILE* file = fopen(ARCHIVO_EMPLEADO, "a+b");
-    rewind(file);
+    */
+    FILE* file = fopen(ARCHIVO_EMPLEADOS, "rb");
+    //rewind(file);
     if (file == NULL)
     {
         printf("No se pudo abrir el archivo de empleados.\n");
@@ -167,4 +208,3 @@ void login_empresa()
         printf("Correo o contrasena incorrectos.\n");
     }
 }
-

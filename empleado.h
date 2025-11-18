@@ -1,6 +1,9 @@
 #ifndef EMPLEADO_H_INCLUDED
 #define EMPLEADO_H_INCLUDED
 
+// ------- Definiciï¿½n de Archivo Centralizada -------
+#define ARCHIVO_EMPLEADOS "empleados.bin" // <--- Aï¿½ADIDO (y unificado)
+
 // ------- Estructura Empleado -------
 
 typedef struct
@@ -21,4 +24,4 @@ void funcion_iniciarSesion_empleado();
 
 
 #endif // EMPLEADO_H_INCLUDED
-///Esto va al final porque #endif es el cierre de una condición
+///Esto va al final porque #endif es el cierre de una condiciï¿½n

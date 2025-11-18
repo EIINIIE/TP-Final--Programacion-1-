@@ -2,11 +2,12 @@
 #include <string.h>
 #include <stdlib.h>
 #include "gerente.h"
+#include "empleado.h"
 
-#define ARCHIVO_GERENTE "gerente.bin"
+/// #define ARCHIVO_GERENTE "gerente.bin"
 
 //-----------------------------------------------------
-// FUNCION 1 - Iniciar sesión del gerente (administrador)
+// FUNCION 1 - Iniciar sesiï¿½n del gerente (administrador)
 //-----------------------------------------------------
 int iniciarSesionGerente()
 {
@@ -23,7 +24,7 @@ int iniciarSesionGerente()
     fflush(stdin);
     gets(correoIngresado);
 
-    printf("Ingrese su contraseña: ");
+    printf("Ingrese su contraseï¿½a: ");
     fflush(stdin);
     gets(contrasenaIngresada);
 
@@ -55,9 +56,9 @@ void menu_gerente()
         printf("1. Registrar nuevo empleado\n");
         printf("2. Ver empleados\n");
         printf("3. Eliminar empleado\n");
-        printf("0. Cerrar sesión\n");
+        printf("0. Cerrar sesiï¿½n\n");
         printf("-----------------------------------\n");
-        printf("Seleccione una opción: ");
+        printf("Seleccione una opciï¿½n: ");
         scanf("%d", &opcion);
         system("cls");
 
@@ -132,7 +133,7 @@ stGerente cargar_un_empleado()
 //-----------------------------------------------------
 void agregar_empleado()
 {
-    FILE* file = fopen(ARCHIVO_GERENTE, "ab");
+    FILE* file = fopen(ARCHIVO_EMPLEADOS, "ab");
     if (file == NULL)
     {
         printf("Error al abrir el archivo de empleados.\n");
@@ -160,7 +161,7 @@ void agregar_empleado()
 //-----------------------------------------------------
 void eliminar_empleado()
 {
-    FILE* file = fopen(ARCHIVO_GERENTE, "r+b");
+    FILE* file = fopen(ARCHIVO_EMPLEADOS, "r+b");
     if (file == NULL)
     {
         printf("No se pudo abrir el archivo de empleados.\n");
@@ -180,7 +181,7 @@ void eliminar_empleado()
         {
             encontrado = 1;
             printf("Empleado encontrado: %s | Rol: %s\n", emple.correo, emple.rol);
-            printf("Desea confirmar la eliminación? (1 = Si / 2 = No): ");
+            printf("Desea confirmar la eliminaciï¿½n? (1 = Si / 2 = No): ");
             int confirmar;
             scanf("%d", &confirmar);
 
@@ -212,7 +213,7 @@ void eliminar_empleado()
 //-----------------------------------------------------
 void mostrar_empleados()
 {
-    FILE* file = fopen(ARCHIVO_GERENTE, "rb");
+    FILE* file = fopen(ARCHIVO_EMPLEADOS, "rb");
     if (file == NULL)
     {
         printf("No se pudo abrir el archivo de empleados.\n");
