@@ -166,26 +166,25 @@
 
 1763489230 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\usuario.h
 
-1763489230 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\venta.c
+1763490657 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\venta.c
 	<stdio.h>
 	<string.h>
 	"venta.h"
 	"fecha.h"
 	"auto_cliente.h"
+	"cliente.h"
 
-1763489230 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\venta.h
+1763490077 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\venta.h
 	"fecha.h"
 
-1763489345 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\usuario.c
+1763490327 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\usuario.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
 	"usuario.h"
-	"auto.h"
-	<stdio.h>
-	<string.h>
-	<stdlib.h>
-	"usuario.h"
+	"auto_cliente.h"
+	"autos_disponibles.h"
+	"cliente.h"
 
 1761428507 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\auto.c
 	<stdio.h>
@@ -394,7 +393,13 @@
 
 1763489230 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\autos_disponibles.h
 
-1763489230 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\pagos.c
+1763491053 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\pagos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"pagos.h"
+	"auto.h"
+	"auto_cliente.h"
 
 1763489938 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\loing.c
 	<stdio.h>
@@ -448,4 +453,6 @@
 1762374023 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\autos_disponibles.h
 
 1762374023 dd3a81b1257d286a473934a0e3828d1b2623a
+
+1763491053 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\pagos.h
 

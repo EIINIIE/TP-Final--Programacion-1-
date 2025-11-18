@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <string.h>
-#include "empleado.h"
 #include <stdlib.h>
-
-//#include "auto_cliente.h"
+#include "empleado.h"
 #include "auto.h"
-#include "autos_disponibles.h" /// YA CARGADOS
+#include "auto_cliente.h" // Para agregar_autos
+#include "autos_disponibles.h"
+#include "cliente.h" // Para cargar_persona
+#include "pagos.h"
 
 
 //#define ARCHIVO_EMPLEADO "empleado.bin"
@@ -149,6 +150,7 @@ void funcion_iniciarSesion_empleado()
                 printf("     PAGOS \n");
                 printf("-----------------------\n\n");
 
+                gestionDePagos();
                 /// ACA IRA LA EL ARCHIVO DE PAGOS Y LA FUNCION DE LOS PAGOS
 
 

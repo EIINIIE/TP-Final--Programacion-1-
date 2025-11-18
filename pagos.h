@@ -1,6 +1,6 @@
 #ifndef PAGOS_H_INCLUDED
 #define PAGOS_H_INCLUDED
 
-float medioDPago(float precioDeAdquisicion);
+void gestionDePagos();
 
 #endif // PAGOS_H_INCLUDED
