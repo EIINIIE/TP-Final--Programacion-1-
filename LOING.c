@@ -17,9 +17,9 @@ void menu_login()
         printf("\n-------------------------------------\n");
         printf("            MENU LOGIN\n");
         printf("-------------------------------------\n");
-        printf("1. EMPLEADO\n");
+        printf("1. EMPRESA\n"); /// este seria para el empleado
         printf("2. CLIENTE\n");
-        printf("3. ADMINISTRADOR\n");
+        printf("3. ADMINISTRADOR\n"); /// aca nose si poner el administrador o gerente
         printf("0. Volver al inicio\n");
         printf("-------------------------------------\n");
 
@@ -187,7 +187,9 @@ void login_empresa()
         if (strcmp(correo, emple.correo) == 0 && strcmp(contrasena, emple.contrasena) == 0)
         {
             encontrado = 1;
-            printf("Inicio de sesion exitoso - Rol: %s\n", emple.rol);
+            printf("Inicio de sesion exitoso – Rol: %s\n", emple.rol);
+            system("pause");
+            system("cls");
 
             if (strcmp(emple.rol, "administrador") == 0)
             {
@@ -195,16 +197,9 @@ void login_empresa()
             }
             else
             {
-                funcion_iniciarSesion_empleado();
+                menu_empleado_directo(); // función sin login otra vez
             }
             break;
         }
-    }
-
-    fclose(file);
-
-    if (!encontrado)
-    {
-        printf("Correo o contrasena incorrectos.\n");
     }
 }

@@ -8,6 +8,7 @@
 #include "cliente.h" // Para cargar_persona
 #include "pagos.h"
 
+
 //#define ARCHIVO_EMPLEADO "empleado.bin"
 
 /// funcion 1
@@ -15,6 +16,8 @@
 int iniciarSesion_empleado()
 {
     stEmpleado empleado;
+
+
 
     strcpy(empleado.correo, "empleado_123@gmail.com");
     strcpy(empleado.contrasena, "empleado123");
@@ -60,115 +63,56 @@ int verificar_Usuario_empleado(char correo[], char contrasena[])
 }
 
 /// ------------------------------------------------------------------------------------------------------
+
 /// FUNCION 3
-void funcion_iniciarSesion_empleado()
+void menu_empleado_directo()
 {
-    char correo[50], contrasena[50];
-    printf("\n------ INICIAR SESION ------\n");
-    printf("Correo: ");
-    scanf("%s", correo);
-    printf("Contrasena: ");
-    scanf("%s", contrasena);
-    system("cls");
-
-    if(verificar_Usuario_empleado(correo, contrasena))
+    int opcion_sesion;
+    do
     {
-        printf("\nSesion iniciada correctamente\n\n");
+        printf("-------------------------------------\n");
+        printf("1. Datos del cliente \n");
+        printf("2. Dato del auto del cliente \n");
+        printf("3. Autos disponibles \n");
+        printf("4. Pagos \n");
+        printf("5. Volver al inicio \n");
+        printf("0. Salir \n");
+        printf("-------------------------------------\n\n");
 
-        int opcion_sesion;
-        do
+        printf("Elija una opcion: ");
+        scanf("%d", &opcion_sesion);
+        system("cls");
+
+        switch(opcion_sesion)
         {
-
-            /// iria estas opciones para hacer lo otro lo q esta abajo no iria
-
-            printf("-------------------------------------\n");
-
-            printf("1. Datos del cliente \n");
-            printf("2. Dato del auto del cliente \n");
-            printf("3. Autos disponibles \n");
-            printf("4. Pagos \n");
-            printf("5. Volver al inicio \n");
-            printf("0. Salir \n");
-
-            printf("-------------------------------------\n");
-
-            printf("\n");
-
-            printf("Elija una opcion: ");
-            scanf("%d", &opcion_sesion);
-            system("cls");
-
-            switch(opcion_sesion)
-            {
             case 0:
-
-
                 printf("Saliendo...\n");
+                return;
 
-                return ;
-
-                break;
             case 1:
-
-                printf("\n------------------------ \n");
-                printf("     DATOS DEL CLIENTE \n");
-                printf("---------------------------\n\n");
-
-                /// ACA IRIA EL ARCHIVO Y LA FUNCION DE CARGAR DATOS DEL CLIENTE
-
                 cargar_persona();
-
                 break;
+
             case 2:
-                printf("\n----------------------------- \n");
-                printf("   DATO DEL AUTO DEL CLIENTE \n");
-                printf("------------------------------\n\n");
-
                 agregar_autos_cliente();
-
-
                 break;
+
             case 3:
-
-                printf("\n------------------------- \n");
-                printf("     AUTOS DISPONIBLES \n");
-                printf("---------------------------\n\n");
-
                 mostrar_todos_autos_disponibles();
-
                 break;
 
-            case 4 :
-
-                printf("\n------------------- \n");
-                printf("     PAGOS \n");
-                printf("-----------------------\n\n");
-
+            case 4:
                 gestionDePagos();
-                /// ACA IRA LA EL ARCHIVO DE PAGOS Y LA FUNCION DE LOS PAGOS
-
-
                 break;
 
-            case 5 :
-
-                printf("Volviendo al inicio...\n");
-
+            case 5:
                 opcion_sesion = 0;
-
                 break;
-
-
 
             default:
                 printf("Opcion no valida\n");
                 break;
-            }
         }
-        while(opcion_sesion != 0);
-    }
-    else
-    {
-        printf("\nCorreo o contrasenia incorrectos\n");
-    }
+
+    } while(opcion_sesion != 0);
 }

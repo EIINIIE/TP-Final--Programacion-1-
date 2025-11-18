@@ -5,6 +5,7 @@
 #define ARCHIVO_EMPLEADOS "empleados.bin" // <--- A�ADIDO (y unificado)
 
 // ------- Estructura Empleado -------
+
 typedef struct
 {
     char correo[50];
@@ -18,7 +19,11 @@ typedef struct
 
 // ------- Prototipo -------
 int iniciarSesion_empleado();
-void funcion_iniciarSesion_empleado();
+void menu_empleado_directo();
+
+
+
+
 
 #endif // EMPLEADO_H_INCLUDED
 ///Esto va al final porque #endif es el cierre de una condici�n
