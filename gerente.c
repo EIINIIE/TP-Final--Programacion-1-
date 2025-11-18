@@ -7,7 +7,7 @@
 /// #define ARCHIVO_GERENTE "gerente.bin"
 
 //-----------------------------------------------------
-// FUNCION 1 - Iniciar sesi�n del gerente (administrador)
+// FUNCION 1 - Iniciar sesion del gerente (administrador)
 //-----------------------------------------------------
 int iniciarSesionGerente()
 {
@@ -24,7 +24,7 @@ int iniciarSesionGerente()
     fflush(stdin);
     gets(correoIngresado);
 
-    printf("Ingrese su contrase�a: ");
+    printf("Ingrese su contrasena: ");
     fflush(stdin);
     gets(contrasenaIngresada);
 
@@ -56,9 +56,9 @@ void menu_gerente()
         printf("1. Registrar nuevo empleado\n");
         printf("2. Ver empleados\n");
         printf("3. Eliminar empleado\n");
-        printf("0. Cerrar sesi�n\n");
+        printf("0. Cerrar sesion\n");
         printf("-----------------------------------\n");
-        printf("Seleccione una opci�n: ");
+        printf("Seleccione una opcion: ");
         scanf("%d", &opcion);
         system("cls");
 
@@ -181,7 +181,7 @@ void eliminar_empleado()
         {
             encontrado = 1;
             printf("Empleado encontrado: %s | Rol: %s\n", emple.correo, emple.rol);
-            printf("Desea confirmar la eliminaci�n? (1 = Si / 2 = No): ");
+            printf("Desea confirmar la eliminacion? (1 = Si / 2 = No): ");
             int confirmar;
             scanf("%d", &confirmar);
 

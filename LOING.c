@@ -23,17 +23,17 @@ void menu_login()
         printf("0. Volver al inicio\n");
         printf("-------------------------------------\n");
 
-        printf("\nElija una opci�n: ");
+        printf("\nElija una opcion: ");
         scanf("%d", &opcion_login);
 
-        getchar(); // <-- Esta es tu correcci�n, est� perfecta.
+        getchar(); // <-- Esta es tu correccion, esto perfecta.
         system("cls");
 
         switch (opcion_login)
         {
         case 1:
-            printf("Iniciando sesi�n como EMPRESA...\n");
-            login_empresa(); /// <-- Llama a la funci�n S�LO de empleados
+            printf("Iniciando sesion como EMPRESA...\n");
+            login_empresa(); /// <-- Llama a la funcion SOLO de empleados
             break;
 
         case 2:
@@ -44,14 +44,14 @@ void menu_login()
                 printf("\n-------------------------------------\n");
                 printf("         ACCESO CLIENTE\n");
                 printf("---------------------------------------\n");
-                printf("1. Iniciar sesi�n\n");
+                printf("1. Iniciar sesion\n");
                 printf("2. Registrarse\n");
                 printf("0. Volver atras\n");
                 printf("-------------------------------------\n");
-                printf("\nElija una opci�n: ");
+                printf("\nElija una opcion: ");
                 scanf("%d", &opcion_cliente);
 
-                getchar(); // <-- Esta es tu correcci�n, est� perfecta.
+                getchar(); // <-- Esta es tu correccion, esto perfecta.
                 system("cls");
 
                 switch (opcion_cliente)
@@ -63,7 +63,7 @@ void menu_login()
                 case 2:
                 {
                     stUsuario nuevo = registro_Usuario();
-                    if (nuevo.dni != -1) /// se registr� correctamente
+                    if (nuevo.dni != -1) /// se registro correctamente
                     {
                         guardar_Usuario(nuevo);
                         printf("\nAhora inicie sesion con su nuevo usuario.\n\n");
@@ -80,7 +80,7 @@ void menu_login()
                     break;
 
                 default:
-                    printf("Opci�n no v�lida.\n");
+                    printf("Opcion no valida.\n");
                     break;
                 }
 
@@ -104,7 +104,7 @@ void menu_login()
             break;
 
         default:
-            printf("Opci�n no v�lida.\n");
+            printf("Opcion no valida.\n");
             break;
         }
 
@@ -115,7 +115,7 @@ void menu_login()
     while (opcion_login != 0);
 }
 
-// --- FUNCI�N S�LO PARA ADMINISTRADOR ---
+// --- FUNCION SOLO PARA ADMINISTRADOR ---
 void login_administrador()
 {
     char correo[50];
@@ -133,7 +133,7 @@ void login_administrador()
 
     system("cls");
 
-    // L�gica movida desde login_empresaa
+    // Logica movida desde login_empresaa
     if (strcmp(correo, "admin@gmail.com") == 0 && strcmp(contrasena, "admin101") == 0)
     {
         printf("Inicio de sesion exitoso - Rol: ADMINISTRADOR\n");

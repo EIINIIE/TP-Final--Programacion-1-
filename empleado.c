@@ -29,7 +29,7 @@ int iniciarSesion_empleado()
     printf("Ingrese su correo: ");
     scanf("%s", correoIngresado);
 
-    printf("Ingrese su contrase�a: ");
+    printf("Ingrese su contrasena: ");
     scanf("%s", contrasenaIngresada);
 
     system("cls");
@@ -42,7 +42,7 @@ int iniciarSesion_empleado()
     }
     else
     {
-        printf("Correo o contrase�a incorrectos.\n");
+        printf("Correo o contrasena incorrectos.\n");
         return 0;
     }
 }
