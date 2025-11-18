@@ -1,37 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 #include "auto.h"
 #include "cliente.h"
+#include "pagos.h" // Necesario si usas medioDPago aqui
 
-/// FUNCION 1
+// FUNCION 1: Cargar datos de un auto (Generico)
 Auto cargar_auto()
 {
     Auto autos;
+    // Inicializamos titular vacio por defecto
+    strcpy(autos.titular.nombre, "SIN ASIGNAR");
 
-    printf("----DATOS DEL AUTO DEL CLIENTE ----\n");
+    printf("---- DATOS DEL AUTO ----\n");
     printf("Patente: ");
     scanf("%s", autos.patente);
     printf("Marca: ");
     scanf("%s", autos.marca);
     printf("Modelo: ");
     scanf("%s", autos.modelo);
-    printf("Año: ");
+    printf("Anio: ");
     scanf("%d", &autos.anio);
     printf("Kilometros: ");
     scanf("%d", &autos.kms);
     printf("Precio: ");
     scanf("%f", &autos.precioDeAdquisicion);
 
-    autos.precioFinal = medioDPago(autos.precioDeAdquisicion);
-
-    printf("Precio original: $%.2f\n", autos.precioDeAdquisicion);
-    printf("Precio final: $%.2f\n", autos.precioFinal);
+    autos.precioFinal = autos.precioDeAdquisicion;
 
     return autos;
 }
 
-/// FUNCION 2
+// FUNCION 2: Agregar auto (Usada por clientes externos)
 void agregar_autos()
 {
     FILE* file = fopen(ARCHIVO_AUTOS, "ab");
@@ -42,92 +43,88 @@ void agregar_autos()
     }
 
     Auto nuevo_auto = cargar_auto();
-    nuevo_auto.titular = cargar_persona();  // Usamos persona
+    nuevo_auto.titular = cargar_persona();  // Aqui si pedimos titular
 
     fwrite(&nuevo_auto, sizeof(Auto), 1, file);
     fclose(file);
-    printf("Auto y titular cargados correctamente\n");
+    printf("Auto cargado correctamente\n");
 }
 
-/// FUNCION 3
+// FUNCION 3: Mostrar un auto
 void mostrar_auto(Auto a)
 {
-    printf("---- DATOS DEL VEHICULO ----\n");
-    printf("Patente: %s\n", a.patente);
-    printf("Marca: %s\n", a.marca);
-    printf("Modelo: %s\n", a.modelo);
-    printf("Año: %d\n", a.anio);
-    printf("Kilometraje: %d\n", a.kms);
-    printf("Precio de adquisición: $%.2f\n", a.precioDeAdquisicion);
-    printf("Precio final: $%.2f\n", a.precioFinal);
-
-    printf("\n---- DATOS DEL TITULAR ----\n");
-    printf("DNI: %s\n", a.titular.dni);
-    printf("Nombre: %s\n", a.titular.nombre);
-    printf("Teléfono: %s\n", a.titular.telefono);
-    printf("Dirección: %s\n", a.titular.direccion);
-    printf("Rol: %s\n", a.titular.rol);
+    printf("Patente: %-10s | Marca: %-10s | Modelo: %-10s | Precio: $%.2f\n",
+           a.patente, a.marca, a.modelo, a.precioFinal);
 }
 
-/// FUNCION 4
+// FUNCION 4: Mostrar todos (Para Autos Disponibles)
 void mostrar_todos_autos(char archivo[])
 {
     FILE* file = fopen(archivo, "rb");
     if(file == NULL)
     {
-        printf("Error al abrir el archivo\n");
+        printf("Error al abrir el archivo de autos.\n");
         return;
     }
 
     Auto a;
+    printf("\nLISTADO DE AUTOS:\n");
     while(fread(&a, sizeof(Auto), 1, file) == 1)
     {
-        mostrar_auto(a); // muestra un auto con sus datos
-        printf("\n");
+        mostrar_auto(a);
     }
     fclose(file);
 }
 
-
-///---------------------------------------------------------------------------------------------------------------------
-
-/// esta funcion va en el archivo de pagos ( hay q agregar un archivo de paogs.c y.h para esta funcion )
-
-
-///FUNCION 5
+// FUNCION 5: Medio de pago (Logica simple)
 float medioDPago(float precioDeAdquisicion)
 {
-    int porcentajeEfectivo = 20 + rand() % 21;   // 20 a 40%
-    int porcentajeEnTarjeta = 5 + rand() % 16;   // 5 a 20%
-    int medio;
-    float precioFinal = precioDeAdquisicion; ///
-    float resultado = 0; // <- para guardar el monto del descuento o recargo ///
-
-    printf("\n--- MEDIO DE PAGO ---\n");
-    printf("1_ Si pagas en efectivo te damos un %d%% de descuento\n", porcentajeEfectivo);
-    printf("2_ Si pagas con tarjeta te damos un recargo de %d%%\n", porcentajeEnTarjeta);
-    printf("Ingrese el medio de pago: ");
-    scanf("%d", &medio);
-
-    if(medio == 1)
-    {
-        resultado = (precioDeAdquisicion * porcentajeEfectivo) / 100.0; ///
-        precioFinal = precioDeAdquisicion - resultado; ///
-    }
-    else if(medio == 2)
-    {
-        resultado = (precioDeAdquisicion * porcentajeEnTarjeta) / 100.0; ///
-        precioFinal = precioDeAdquisicion + resultado; ///
-    }
-    else
-    {
-        printf("Opcion no valida, se mantiene el precio original.\n");
-    }
-
-    printf("Precio final: $%.2f\n", precioFinal); ///
-
-    return precioFinal;
+    // Puedes reutilizar la logica de pagos.c o dejarla simple aqui
+    return precioDeAdquisicion;
 }
 
-//FUNCION 6
+// ------------------------------------------------------------
+// NUEVA FUNCION: Permite al Gerente cargar stock manual
+// ------------------------------------------------------------
+void agregar_auto_stock()
+{
+    FILE *file = fopen(ARCHIVO_AUTOS, "ab"); // "ab" para agregar al final
+    if(file == NULL)
+    {
+        printf("Error al abrir el archivo de stock (autos.bin).\n");
+        return;
+    }
 
+    Auto nuevo;
+
+    printf("\n--- INGRESO DE NUEVO AUTO AL STOCK (GERENCIA) ---\n");
+
+    printf("Patente: ");
+    scanf("%s", nuevo.patente);
+
+    printf("Marca: ");
+    scanf("%s", nuevo.marca);
+
+    printf("Modelo: ");
+    scanf("%s", nuevo.modelo);
+
+    printf("Anio: ");
+    scanf("%d", &nuevo.anio);
+
+    printf("Kilometros: ");
+    scanf("%d", &nuevo.kms);
+
+    printf("Precio de Venta (Base): $");
+    scanf("%f", &nuevo.precioDeAdquisicion);
+
+    // Configuración automática para stock
+    nuevo.precioFinal = nuevo.precioDeAdquisicion;
+    strcpy(nuevo.titular.nombre, "CONCESIONARIA"); // Dueño empresa
+    strcpy(nuevo.titular.dni, "000");
+    nuevo.titular.rol[0] = '\0';
+
+    fwrite(&nuevo, sizeof(Auto), 1, file);
+    fclose(file);
+
+    printf("\n[OK] Auto patente %s agregado al stock correctamente.\n", nuevo.patente);
+}

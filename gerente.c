@@ -3,8 +3,12 @@
 #include <stdlib.h>
 #include "gerente.h"
 #include "empleado.h"
-
-/// #define ARCHIVO_GERENTE "gerente.bin"
+#include "cliente.h"
+#include "auto_cliente.h"
+#include "autos_disponibles.h"
+#include "pagos.h"
+#include "venta.h"
+#include "auto.h" // <--- AGREGADO: Necesario para usar agregar_auto_stock()
 
 //-----------------------------------------------------
 // FUNCION 1 - Iniciar sesion del gerente (administrador)
@@ -24,7 +28,7 @@ int iniciarSesionGerente()
     fflush(stdin);
     gets(correoIngresado);
 
-    printf("Ingrese su contrasena: ");
+    printf("Ingrese su contrasenia: ");
     fflush(stdin);
     gets(contrasenaIngresada);
 
@@ -40,63 +44,96 @@ int iniciarSesionGerente()
     }
 }
 
-
-///-----------------------------------------------------
-/// FUNCION 2 - Menu del gerente
-///-----------------------------------------------------
+//-----------------------------------------------------
+// FUNCION 2 - Menu Completo del Gerente
+//-----------------------------------------------------
 void menu_gerente()
 {
     int opcion;
 
     do
     {
-        printf("\n-----------------------------------\n");
-        printf("         MENU DEL GERENTE\n");
-        printf("-----------------------------------\n");
-        printf("1. Registrar nuevo empleado\n");
-        printf("2. Ver empleados\n");
-        printf("3. Eliminar empleado\n");
-        printf("0. Cerrar sesion\n");
-        printf("-----------------------------------\n");
+        printf("\n==================================================\n");
+        printf("       SESION INICIADA: ADMINISTRADOR (GERENTE)     \n");
+        printf("==================================================\n");
+        printf("1. Datos del cliente (Cargar nuevo)\n");
+        printf("2. Dato del auto del cliente (Cargar)\n");
+        printf("3. Autos disponibles (Stock Empresa)\n");
+        printf("4. Pagos (Vender Auto)\n");
+        printf("5. Registrar empleado\n");
+        printf("6. Dar de baja al empleado\n");
+        printf("7. Volver al inicio (Cerrar Sesion)\n");
+        printf("8. Ventas (Ver historial)\n");
+        printf("9. INGRESAR NUEVO AUTO (Cargar Stock)\n"); // <--- AGREGADO
+        printf("0. Salir del sistema\n");
+        printf("--------------------------------------------------\n");
         printf("Seleccione una opcion: ");
         scanf("%d", &opcion);
         system("cls");
 
         switch (opcion)
         {
-        case 1:
+        case 1: // Funcionalidad compartida con empleado
+            printf("\n--- GESTION DE CLIENTES ---\n");
+            cargar_persona();
+            break;
+
+        case 2: // Funcionalidad compartida
+            printf("\n--- CARGA DE AUTO DE CLIENTE ---\n");
+            agregar_autos_cliente();
+            break;
+
+        case 3: // Ver stock real
+            mostrar_todos_autos_disponibles();
+            break;
+
+        case 4: // Realizar una venta/pago
+            gestionDePagos();
+            break;
+
+        case 5: // Exclusivo Gerente
             agregar_empleado();
             break;
 
-        case 2:
-            mostrar_empleados();
-            break;
-
-        case 3:
+        case 6: // Exclusivo Gerente
             eliminar_empleado();
             break;
 
+        case 7:
+            printf("Cerrando sesion y volviendo al menu principal...\n");
+            return; // Vuelve al main()
+
+        case 8: // Exclusivo Gerente (Reportes)
+            printf("\n--- HISTORIAL DE VENTAS ---\n");
+            mostrarVentas();
+            break;
+
+        case 9: // <--- AGREGADO: Llamada a la funcion nueva
+            agregar_auto_stock();
+            break;
+
         case 0:
-            printf("Cerrando sesion...\n");
+            printf("Saliendo del sistema completamente...\n");
+            exit(0); // Cierra el programa
             break;
 
         default:
-            printf("Opcion invalida.\n");
+            printf("Opcion invalida. Intente nuevamente.\n");
             break;
         }
 
-        if (opcion != 0)
+        if (opcion != 7 && opcion != 0)
         {
             system("pause");
             system("cls");
         }
 
     }
-    while (opcion != 0);
+    while (opcion != 7 && opcion != 0);
 }
 
 //-----------------------------------------------------
-// FUNCION 3 - Cargar un empleado nuevo
+// FUNCION 3 - Cargar un empleado nuevo (Interna)
 //-----------------------------------------------------
 stGerente cargar_un_empleado()
 {
@@ -133,7 +170,7 @@ stGerente cargar_un_empleado()
 //-----------------------------------------------------
 void agregar_empleado()
 {
-    FILE* file = fopen(ARCHIVO_EMPLEADOS, "ab");
+    FILE* file = fopen("empleados.bin", "ab");
     if (file == NULL)
     {
         printf("Error al abrir el archivo de empleados.\n");
@@ -141,7 +178,7 @@ void agregar_empleado()
     }
 
     char control = 's';
-    while (control == 's')
+    while (control == 's' || control == 'S')
     {
         stGerente nuevo = cargar_un_empleado();
         fwrite(&nuevo, sizeof(stGerente), 1, file);
@@ -153,7 +190,6 @@ void agregar_empleado()
     }
 
     fclose(file);
-    printf("Registros completados.\n");
 }
 
 //-----------------------------------------------------
@@ -161,10 +197,19 @@ void agregar_empleado()
 //-----------------------------------------------------
 void eliminar_empleado()
 {
-    FILE* file = fopen(ARCHIVO_EMPLEADOS, "r+b");
+    FILE* file = fopen("empleados.bin", "rb");
     if (file == NULL)
     {
-        printf("No se pudo abrir el archivo de empleados.\n");
+        printf("No hay empleados registrados o no se pudo abrir el archivo.\n");
+        return;
+    }
+
+    // Usamos archivo temporal para la baja fisica
+    FILE* temp = fopen("temp_empleados.bin", "wb");
+    if (temp == NULL)
+    {
+        fclose(file);
+        printf("Error creando archivo temporal.\n");
         return;
     }
 
@@ -181,39 +226,51 @@ void eliminar_empleado()
         {
             encontrado = 1;
             printf("Empleado encontrado: %s | Rol: %s\n", emple.correo, emple.rol);
-            printf("Desea confirmar la eliminacion? (1 = Si / 2 = No): ");
-            int confirmar;
-            scanf("%d", &confirmar);
+            printf("Esta seguro de eliminarlo? (s/n): ");
+            char confirmar;
+            fflush(stdin);
+            scanf(" %c", &confirmar);
 
-            if (confirmar == 1)
+            if (confirmar == 's' || confirmar == 'S')
             {
-                stGerente vacio = {0};
-                fseek(file, -sizeof(stGerente), SEEK_CUR);
-                fwrite(&vacio, sizeof(stGerente), 1, file);
-                printf("Empleado eliminado correctamente.\n");
+                printf("Empleado eliminado.\n");
+                // NO lo escribimos en el temporal -> Se borra
             }
             else
             {
-                printf("Operacion cancelada.\n");
+                // Si se arrepiente, lo escribimos
+                fwrite(&emple, sizeof(stGerente), 1, temp);
+                printf("Eliminacion cancelada.\n");
             }
-            break;
+        }
+        else
+        {
+            // Si no es el buscado, lo copiamos al temporal
+            fwrite(&emple, sizeof(stGerente), 1, temp);
         }
     }
 
-    if (!encontrado)
+    fclose(file);
+    fclose(temp);
+
+    if (encontrado)
     {
+        remove("empleados.bin");
+        rename("temp_empleados.bin", "empleados.bin");
+    }
+    else
+    {
+        remove("temp_empleados.bin");
         printf("No se encontro un empleado con ese DNI.\n");
     }
-
-    fclose(file);
 }
 
 //-----------------------------------------------------
-// FUNCION 6 - Mostrar empleados cargados
+// FUNCION 6 - Mostrar empleados cargados (Auxiliar)
 //-----------------------------------------------------
 void mostrar_empleados()
 {
-    FILE* file = fopen(ARCHIVO_EMPLEADOS, "rb");
+    FILE* file = fopen("empleados.bin", "rb");
     if (file == NULL)
     {
         printf("No se pudo abrir el archivo de empleados.\n");
@@ -223,18 +280,15 @@ void mostrar_empleados()
     stGerente emple;
     int contador = 0;
 
-    printf("-------- LISTA DE EMPLEADOS CARGADOS --------\n");
+    printf("-------- LISTA DE EMPLEADOS --------\n");
 
     while (fread(&emple, sizeof(stGerente), 1, file) == 1)
     {
-        if (emple.dni != 0)
-        {
-            printf("Empleado #%d\n", ++contador);
-            printf("DNI: %d\n", emple.dni);
-            printf("Correo: %s\n", emple.correo);
-            printf("Rol: %s\n", emple.rol);
-            printf("--------------------------------------------\n");
-        }
+        printf("Empleado #%d\n", ++contador);
+        printf("DNI: %d\n", emple.dni);
+        printf("Correo: %s\n", emple.correo);
+        printf("Rol: %s\n", emple.rol);
+        printf("------------------------------------\n");
     }
 
     fclose(file);

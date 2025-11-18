@@ -1,33 +1,27 @@
+#ifndef AUTO_CLIENTE_H_INCLUDED
+#define AUTO_CLIENTE_H_INCLUDED
 
+#include "cliente.h"
 
-#ifndef AUTO_H_INCLUDED
-#define AUTO_H_INCLUDED
+#define ARCHIVO_AUTOS_CLIENTE "autos_cliente.bin" // Cambiamos el define para no chocar
 
-
-#include "cliente.h" // Incluye cliente porque Auto tiene un titular
-
-#define ARCHIVO_AUTOS "autos_cliente.bin"
-
-// ------- Estructura Auto -------
+// ------- Estructura AutoCliente (Renombrada) -------
 typedef struct
 {
-    char patente[11]; // AB-1234-CD o ABC-123
+    char patente[11];
     char marca[20];
     char modelo[20];
     int anio;
     int kms;
-    Cliente titular; // Titular del auto
+    Cliente titular;
     float precioDeAdquisicion;
     float precioFinal;
-} Auto;
-
+} AutoCliente; // <--- AQUI ESTA EL CAMBIO CLAVE
 
 // ------- Prototipos -------
-Auto cargar_auto();
-void agregar_autos();
-void mostrar_auto(Auto autos);
-void mostrar_todos_autos(char archivo[]);
-/*float medioDPago(float precioDeAdquisicion);
-*/
-#endif // AUTO_H_INCLUDED
-///Esto va al final porque #endif es el cierre de una condición
+AutoCliente cargar_auto_cliente(); // Renombramos funcion
+void agregar_autos_cliente();      // Renombramos funcion
+void mostrar_auto_cliente(AutoCliente autos); // Renombramos funcion
+void mostrar_todos_autos_cliente();
+
+#endif // AUTO_CLIENTE_H_INCLUDED

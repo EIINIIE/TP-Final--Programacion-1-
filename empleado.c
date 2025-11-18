@@ -129,8 +129,7 @@ void funcion_iniciarSesion_empleado()
                 printf("   DATO DEL AUTO DEL CLIENTE \n");
                 printf("------------------------------\n\n");
 
-                agregar_autos();
-
+                agregar_autos_cliente();
 
 
                 break;

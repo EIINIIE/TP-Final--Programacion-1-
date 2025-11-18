@@ -9,12 +9,14 @@ typedef struct stVenta
     char patenteAutoVendido[11];
     float precioVenta;
     float ganancia;
-    char dniComprador[15]; // Usar char para mantener coherencia con las estructuras
-    char dniVendedor[15];  // Usar char para mantener coherencia con las estructuras
+    char dniComprador[15];
+    char dniVendedor[15];
 } Venta;
 
-// ------- Prototipo -------
-
+// ------- Prototipos (ESTO ES LO QUE FALTABA) -------
+Venta cargarVenta();
+void registrarVenta();
+void mostrarVenta(Venta ventas);
+void mostrarVentas(); // <--- Esta es la que te da error en gerente.c
 
 #endif // VENTA_H_INCLUDED
-///Esto va al final porque #endif es el cierre de una condición

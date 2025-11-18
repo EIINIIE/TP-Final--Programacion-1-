@@ -2,10 +2,11 @@
 #include <string.h>
 #include "venta.h"
 #include "fecha.h"
-#include "auto_cliente.h"
-#include "cliente.h" // Necesario para la estructura Cliente
+#include "auto.h"          // <--- AGREGAR ESTO (Aquí vive 'Auto')
+#include "auto_cliente.h"  // (Aquí vive 'AutoCliente')
+#include "cliente.h"
 
-// Definimos los archivos aquí para evitar errores de "undeclared identifier"
+// Definimos los archivos aquí para evitar errores
 #define ARCHIVO_AUTOS "autos.bin"
 #define ARCHIVO_CLIENTES "clientes.bin"
 #define ARCHIVO_VENTAS "ventas.bin"

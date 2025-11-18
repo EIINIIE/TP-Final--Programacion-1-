@@ -5,6 +5,7 @@
 #include "auto_cliente.h" // Asegúrate de tener este include para agregar_autos
 #include "autos_disponibles.h" // Para mostrar_todos_autos_disponibles
 #include "cliente.h" // Para cargar_persona
+#include "pagos.h"
 
 #define ARCHIVO_CLIENTES "clientes.bin"
 #define ARCHIVO_AUTOS "autos.bin"
@@ -134,7 +135,7 @@ void iniciarSesion()
                 break;
 
             case 2:
-                agregar_autos();
+                agregar_autos_cliente();
                 break;
 
             case 3:
@@ -142,8 +143,9 @@ void iniciarSesion()
                 break;
 
             case 4:
-                // medioDPago(10000); // Ejemplo, descomentar cuando incluyas pagos.h
-                printf("Funcion de pagos aqui\n");
+                // Antes decia: printf("Funcion de pagos aqui\n");
+                // Ahora llamamos a la funcion real:
+                gestionDePagos();
                 break;
 
             case 5:

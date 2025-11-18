@@ -2,12 +2,56 @@
 #include <stdlib.h>
 #include <string.h>
 #include "pagos.h"
-#include "auto.h" // Necesitamos la estructura Auto
-#include "auto_cliente.h" // Y la definición de ARCHIVO_AUTOS
+#include "auto.h"
 
-// --- FUNCIONES AUXILIARES (INTERNAS) ---
+// --- FUNCION NUEVA: Eliminar auto del archivo fisico ---
+void eliminar_auto_stock(char patenteEliminar[])
+{
+    FILE *archivo = fopen("autos.bin", "rb");
+    FILE *temporal = fopen("temp.bin", "wb");
 
-// 1. Función para ordenar el arreglo (NECESARIO para Búsqueda Binaria)
+    if (archivo == NULL || temporal == NULL)
+    {
+        printf("Error al intentar actualizar el stock.\n");
+        return;
+    }
+
+    Auto a;
+    int encontrado = 0;
+
+    // Copiamos todos los autos EXCEPTO el que tiene la patente vendida
+    while(fread(&a, sizeof(Auto), 1, archivo) == 1)
+    {
+        if(strcmp(a.patente, patenteEliminar) != 0)
+        {
+            // Si NO es la patente que busco, lo guardo en el nuevo archivo
+            fwrite(&a, sizeof(Auto), 1, temporal);
+        }
+        else
+        {
+            encontrado = 1;
+        }
+    }
+
+    fclose(archivo);
+    fclose(temporal);
+
+    if(encontrado)
+    {
+        // Borramos el viejo y renombramos el nuevo
+        remove("autos.bin");
+        rename("temp.bin", "autos.bin");
+        printf("\n[SISTEMA] El auto se ha quitado de la lista de disponibles.\n");
+    }
+    else
+    {
+        // Si no pasó nada, borramos el temporal
+        remove("temp.bin");
+    }
+}
+
+// --- FUNCIONES AUXILIARES DE SIEMPRE ---
+
 void ordenarPorPatente(Auto autos[], int validos)
 {
     Auto aux;
@@ -16,7 +60,6 @@ void ordenarPorPatente(Auto autos[], int validos)
     {
         for(j = i + 1; j < validos; j++)
         {
-            // Si la patente 'i' es mayor que la 'j', intercambiamos
             if(strcmp(autos[i].patente, autos[j].patente) > 0)
             {
                 aux = autos[i];
@@ -27,7 +70,6 @@ void ordenarPorPatente(Auto autos[], int validos)
     }
 }
 
-// 2. Algoritmo de Búsqueda Binaria
 int buscarPatenteBinaria(Auto autos[], int validos, char patenteBuscada[])
 {
     int inicio = 0;
@@ -38,37 +80,28 @@ int buscarPatenteBinaria(Auto autos[], int validos, char patenteBuscada[])
         int medio = inicio + (fin - inicio) / 2;
         int comparacion = strcmp(autos[medio].patente, patenteBuscada);
 
-        if (comparacion == 0)
-        {
-            return medio; // Encontrado, retorna la posición
-        }
-        if (comparacion < 0)
-        {
-            inicio = medio + 1; // Buscar en la mitad derecha
-        }
-        else
-        {
-            fin = medio - 1; // Buscar en la mitad izquierda
-        }
+        if (comparacion == 0) return medio;
+        if (comparacion < 0) inicio = medio + 1;
+        else fin = medio - 1;
     }
-    return -1; // No encontrado
+    return -1;
 }
 
-// --- FUNCION PRINCIPAL DEL MODULO ---
+// --- GESTION DE PAGOS (Actualizada) ---
 
 void gestionDePagos()
 {
-    FILE *file = fopen(ARCHIVO_AUTOS, "rb");
+    FILE *file = fopen("autos.bin", "rb");
     if(file == NULL)
     {
-        printf("\nError: No se encuentra el archivo de autos para buscar.\n");
+        printf("\nError: No hay autos cargados por el administrador.\n");
         return;
     }
 
-    // 1. Cargar archivo en memoria
-    Auto listaAutos[100]; // Suponemos un maximo de 100 para este ejemplo
+    Auto listaAutos[100];
     int validos = 0;
 
+    // Cargamos autos en memoria para buscar rapido
     while(fread(&listaAutos[validos], sizeof(Auto), 1, file) == 1 && validos < 100)
     {
         validos++;
@@ -77,34 +110,30 @@ void gestionDePagos()
 
     if(validos == 0)
     {
-        printf("No hay autos cargados en el sistema.\n");
+        printf("El stock de autos esta vacio.\n");
         return;
     }
 
-    // 2. Ordenar el arreglo para poder usar busqueda binaria
     ordenarPorPatente(listaAutos, validos);
 
-    // 3. Pedir patente al usuario
     char patenteBusq[11];
     printf("\n--- BUSQUEDA DE AUTO PARA PAGO ---\n");
     printf("Ingrese la patente del auto que desea comprar: ");
     scanf("%s", patenteBusq);
 
-    // 4. Realizar Búsqueda Binaria
     int pos = buscarPatenteBinaria(listaAutos, validos, patenteBusq);
 
-    // 5. Resultado y Confirmación
     if(pos != -1)
     {
         printf("\n----------------------------------\n");
         printf("AUTO ENCONTRADO:\n");
         printf("Marca: %s - Modelo: %s\n", listaAutos[pos].marca, listaAutos[pos].modelo);
-        printf("Precio Base: $%.2f\n", listaAutos[pos].precioDeAdquisicion);
+        printf("Precio: $%.2f\n", listaAutos[pos].precioFinal);
         printf("----------------------------------\n");
 
         char confirmacion;
         printf("\nLo desea comprar SI o NO? (s/n): ");
-        fflush(stdin); // Limpiar buffer
+        fflush(stdin);
         scanf(" %c", &confirmacion);
 
         if(confirmacion == 's' || confirmacion == 'S')
@@ -112,7 +141,12 @@ void gestionDePagos()
             printf("\n********************************\n");
             printf("   FELICIDADES, LO COMPRASTE!   \n");
             printf("********************************\n");
-            // Aca podrias guardar la venta en ventas.bin si quisieras
+
+            // AQUI ESTA EL CAMBIO: Llamamos a la funcion para borrarlo
+            eliminar_auto_stock(patenteBusq);
+
+            // Opcional: Pausa para leer
+            system("pause");
         }
         else
         {
@@ -124,6 +158,4 @@ void gestionDePagos()
         printf("\n[!] El auto con patente %s no fue encontrado.\n", patenteBusq);
         printf("NO PASA NADA.\n");
     }
-
-    system("pause");
 }

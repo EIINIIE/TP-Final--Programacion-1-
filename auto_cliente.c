@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include "auto_cliente.h"
 #include "cliente.h"
 
 /// FUNCION 1
-Auto cargar_auto()
+AutoCliente cargar_auto_cliente()
 {
-    Auto autos;
+    AutoCliente autos; // Usamos la nueva estructura
 
     printf("----DATOS DEL AUTO DEL CLIENTE ----\n");
     printf("Patente: ");
@@ -23,7 +22,8 @@ Auto cargar_auto()
     printf("Precio: ");
     scanf("%f", &autos.precioDeAdquisicion);
 
-/*  autos.precioFinal = medioDPago(autos.precioDeAdquisicion);*/
+    // Logica de precio simple por ahora para evitar conflictos circulares
+    autos.precioFinal = autos.precioDeAdquisicion;
 
     printf("Precio original: $%.2f\n", autos.precioDeAdquisicion);
     printf("Precio final: $%.2f\n", autos.precioFinal);
@@ -32,60 +32,55 @@ Auto cargar_auto()
 }
 
 /// FUNCION 2
-void agregar_autos()
+void agregar_autos_cliente()
 {
-    FILE* file = fopen(ARCHIVO_AUTOS, "ab");
+    FILE* file = fopen(ARCHIVO_AUTOS_CLIENTE, "ab");
     if(file == NULL)
     {
-        printf("No se pudo abrir el archivo\n");
+        printf("No se pudo abrir el archivo de autos cliente\n");
         return;
     }
 
-    Auto nuevo_auto = cargar_auto();
-    nuevo_auto.titular = cargar_persona();  // Usamos persona
+    AutoCliente nuevo_auto = cargar_auto_cliente();
+    nuevo_auto.titular = cargar_persona();
 
-    fwrite(&nuevo_auto, sizeof(Auto), 1, file);
+    fwrite(&nuevo_auto, sizeof(AutoCliente), 1, file);
     fclose(file);
-    printf("Auto y titular cargados correctamente\n");
+    printf("Auto y titular cargados correctamente en autos_cliente.bin\n");
 }
 
 /// FUNCION 3
-void mostrar_auto(Auto a)
+void mostrar_auto_cliente(AutoCliente a)
 {
-    printf("---- DATOS DEL VEHICULO ----\n");
+    printf("---- DATOS DEL VEHICULO (CLIENTE) ----\n");
     printf("Patente: %s\n", a.patente);
     printf("Marca: %s\n", a.marca);
     printf("Modelo: %s\n", a.modelo);
     printf("Año: %d\n", a.anio);
     printf("Kilometraje: %d\n", a.kms);
-    printf("Precio de adquisición: $%.2f\n", a.precioDeAdquisicion);
-    printf("Precio final: $%.2f\n", a.precioFinal);
+    printf("Precio: $%.2f\n", a.precioFinal);
 
-    printf("\n---- DATOS DEL TITULAR ----\n");
-    printf("DNI: %s\n", a.titular.dni);
+    printf("---- DATOS DEL TITULAR ----\n");
     printf("Nombre: %s\n", a.titular.nombre);
-    printf("Teléfono: %s\n", a.titular.telefono);
-    printf("Dirección: %s\n", a.titular.direccion);
-    printf("Rol: %s\n", a.titular.rol);
+    printf("DNI: %s\n", a.titular.dni);
+    printf("---------------------------\n");
 }
 
 /// FUNCION 4
-void mostrar_todos_autos(char archivo[])
+void mostrar_todos_autos_cliente()
 {
-    FILE* file = fopen(archivo, "rb");
+    FILE* file = fopen(ARCHIVO_AUTOS_CLIENTE, "rb");
     if(file == NULL)
     {
-        printf("Error al abrir el archivo\n");
+        printf("Error al abrir el archivo de autos cliente\n");
         return;
     }
 
-    Auto a;
-    while(fread(&a, sizeof(Auto), 1, file) == 1)
+    AutoCliente a;
+    while(fread(&a, sizeof(AutoCliente), 1, file) == 1)
     {
-        mostrar_auto(a); // muestra un auto con sus datos
+        mostrar_auto_cliente(a);
         printf("\n");
     }
     fclose(file);
 }
-
-
