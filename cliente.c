@@ -2,7 +2,6 @@
 #include <string.h>
 #include "cliente.h"
 
-
 /// esto ya estaria
 
 /// FUNCION 1

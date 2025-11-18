@@ -8,7 +8,6 @@
 #include "cliente.h" // Para cargar_persona
 #include "pagos.h"
 
-
 //#define ARCHIVO_EMPLEADO "empleado.bin"
 
 /// funcion 1
@@ -16,8 +15,6 @@
 int iniciarSesion_empleado()
 {
     stEmpleado empleado;
-
-
 
     strcpy(empleado.correo, "empleado_123@gmail.com");
     strcpy(empleado.contrasena, "empleado123");
@@ -63,7 +60,6 @@ int verificar_Usuario_empleado(char correo[], char contrasena[])
 }
 
 /// ------------------------------------------------------------------------------------------------------
-
 /// FUNCION 3
 void funcion_iniciarSesion_empleado()
 {
@@ -121,7 +117,6 @@ void funcion_iniciarSesion_empleado()
                 /// ACA IRIA EL ARCHIVO Y LA FUNCION DE CARGAR DATOS DEL CLIENTE
 
                 cargar_persona();
-
 
                 break;
             case 2:

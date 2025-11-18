@@ -53,7 +53,8 @@ Venta cargarVenta()
         if(!existeAuto)
             printf("Auto no encontrado. Intente nuevamente.\n");
 
-    } while(!existeAuto);
+    }
+    while(!existeAuto);
 
     printf("\nIngrese precio de venta: ");
     scanf("%f", &ventas.precioVenta);
@@ -89,7 +90,8 @@ Venta cargarVenta()
         if(!existeCliente)
             printf("Cliente no encontrado. Intente nuevamente.\n");
 
-    } while(!existeCliente);
+    }
+    while(!existeCliente);
 
     printf("\nIngrese DNI del vendedor: ");
     scanf("%s", ventas.dniVendedor);
