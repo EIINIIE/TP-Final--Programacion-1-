@@ -17,9 +17,9 @@ void menu_login()
         printf("\n-------------------------------------\n");
         printf("            MENU LOGIN\n");
         printf("-------------------------------------\n");
-        printf("1. EMPRESA\n"); /// este seria para el empleado
+        printf("1. EMPLEADO\n");
         printf("2. CLIENTE\n");
-        printf("3. ADMINISTRADOR\n"); /// aca nose si poner el administrador o gerente
+        printf("3. ADMINISTRADOR\n");
         printf("0. Volver al inicio\n");
         printf("-------------------------------------\n");
 
