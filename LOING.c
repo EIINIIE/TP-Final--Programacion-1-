@@ -197,8 +197,7 @@ void login_empresa()
             }
             else
             {
-                menu_empleado_directo();
-
+                menu_empleado_directo(); // función sin login otra vez
             }
             break;
         }
