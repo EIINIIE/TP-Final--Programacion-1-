@@ -156,7 +156,7 @@ void iniciarSesion()
                 printf("\n-------------------\n");
                 printf("     PAGOS\n");
                 printf("-----------------------\n\n");
-               /* medioDPago();......*/
+               /* medioDPago();*/
                 break;
 
             case 5:
