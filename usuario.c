@@ -1,20 +1,19 @@
-<<<<<<< Updated upstream
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include "usuario.h"
-#include "auto.h"
+#include "auto_cliente.h" // Asegúrate de tener este include para agregar_autos
+#include "autos_disponibles.h" // Para mostrar_todos_autos_disponibles
+#include "cliente.h" // Para cargar_persona
 
 #define ARCHIVO_CLIENTES "clientes.bin"
+#define ARCHIVO_AUTOS "autos.bin"
 
-/// FUNCION 1: Verifica si un usuario ya existe por correo
+// FUNCION 1: Verifica si un usuario ya existe por correo
 int usuario_existente(char correo[])
 {
     FILE* file = fopen(ARCHIVO_CLIENTES, "rb");
-    if(file == NULL)
-    {
-        return 0;
-    }
+    if(file == NULL) return 0;
 
     stUsuario usuario;
     while(fread(&usuario, sizeof(stUsuario), 1, file) == 1)
@@ -29,7 +28,7 @@ int usuario_existente(char correo[])
     return 0; // No existe
 }
 
-/// FUNCION 2: Registrar un nuevo usuario
+// FUNCION 2: Registrar un nuevo usuario
 stUsuario registro_Usuario()
 {
     stUsuario nuevo;
@@ -40,12 +39,12 @@ stUsuario registro_Usuario()
 
     if(usuario_existente(nuevo.correo))
     {
-        printf("Este usuario ya está registrado\n");
+        printf("Este usuario ya esta registrado\n");
         nuevo.dni = -1; // Señal de error
         return nuevo;
     }
 
-    printf("Ingrese su contraseña: ");
+    printf("Ingrese su contrasenia: ");
     scanf("%49s", nuevo.contrasena);
 
     printf("Ingrese su DNI: ");
@@ -54,11 +53,11 @@ stUsuario registro_Usuario()
     printf("Fecha de nacimiento (dd mm aaaa): ");
     scanf("%d %d %d", &nuevo.dia, &nuevo.mes, &nuevo.anios);
 
-    printf("\nUsuario registrado con éxito\n");
+    printf("\nUsuario registrado con exito\n");
     return nuevo;
 }
 
-/// FUNCION 3: Guardar usuario en archivo
+// FUNCION 3: Guardar usuario en archivo
 void guardar_Usuario(stUsuario usuario)
 {
     FILE *file = fopen(ARCHIVO_CLIENTES, "ab");
@@ -71,14 +70,11 @@ void guardar_Usuario(stUsuario usuario)
     fclose(file);
 }
 
-/// FUNCION 4: Verificar si correo y contraseña coinciden
+// FUNCION 4: Verificar si correo y contraseña coinciden
 int verificar_Usuario(char correo[], char contrasena[])
 {
     FILE *file = fopen(ARCHIVO_CLIENTES, "rb");
-    if(file == NULL)
-    {
-        return 0;
-    }
+    if(file == NULL) return 0;
 
     stUsuario usuario;
     int encontrado = 0;
@@ -91,12 +87,11 @@ int verificar_Usuario(char correo[], char contrasena[])
             break;
         }
     }
-
     fclose(file);
     return encontrado;
 }
 
-/// FUNCION 5: Iniciar sesión e ingresar al menú del cliente
+// FUNCION 5: Iniciar sesión e ingresar al menú del cliente
 void iniciarSesion()
 {
     char correo[50], contrasena[50];
@@ -133,31 +128,22 @@ void iniciarSesion()
                 return;
 
             case 1:
-                printf("\n-----------------------\n");
-                printf("     DATOS DEL CLIENTE\n");
-                printf("-------------------------\n\n");
-                cargar_persona(); // Función en otro archivo
+                // Necesitas implementar mostrar datos del cliente logueado
+                // Por ahora llamamos a cargar para probar
+                cargar_persona();
                 break;
 
             case 2:
-                printf("\n-----------------------------\n");
-                printf("   DATO DEL AUTO DEL CLIENTE\n");
-                printf("------------------------------\n\n");
-                agregar_autos(); // Función en auto_cliente.c
+                agregar_autos();
                 break;
 
             case 3:
-                printf("\n-------------------\n");
-                printf("     AUTOS DISPONIBLES\n");
-                printf("-----------------------\n\n");
-                mostrar_todos_autos(ARCHIVO_AUTOS);
+                mostrar_todos_autos_disponibles();
                 break;
 
             case 4:
-                printf("\n-------------------\n");
-                printf("     PAGOS\n");
-                printf("-----------------------\n\n");
-               /* medioDPago();*/
+                // medioDPago(10000); // Ejemplo, descomentar cuando incluyas pagos.h
+                printf("Funcion de pagos aqui\n");
                 break;
 
             case 5:
@@ -169,6 +155,8 @@ void iniciarSesion()
                 printf("Opcion no valida\n");
                 break;
             }
+            system("pause");
+            system("cls");
         }
         while(opcion_sesion != 0);
     }
@@ -177,117 +165,3 @@ void iniciarSesion()
         printf("\nCorreo o contrasenia incorrectos\n");
     }
 }
-=======
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include "usuario.h"
-
-// FUNCION 1
-int usuario_existente(char correo[])
-{
-    FILE* file = fopen(ARCHIVO_CLIENTES, "rb");
-    if(file == NULL) return 0;
-
-    stUsuario usuario;
-    while(fread(&usuario, sizeof(stUsuario), 1, file) == 1)
-    {
-        if(strcmp(usuario.correo, correo) == 0)
-        {
-            fclose(file);
-            return 1;
-        }
-    }
-    fclose(file);
-    return 0;
-}
-
-// FUNCION 2
-stUsuario registro_Usuario()
-{
-    stUsuario nuevo;
-
-    printf("\n--- REGISTRO DE USUARIO ---\n");
-    printf("Ingrese su correo: ");
-    scanf("%49s", nuevo.correo);
-
-    if(usuario_existente(nuevo.correo))
-    {
-        printf("Este usuario ya est� registrado\n");
-        nuevo.dni = -1;
-        return nuevo;
-    }
-
-    printf("Ingrese su contrase�a: ");
-    scanf("%49s", nuevo.contrasena);
-
-    printf("Ingrese su DNI: ");
-    scanf("%d", &nuevo.dni);
-
-    printf("Fecha de nacimiento (dd mm aaaa): ");
-    scanf("%d %d %d", &nuevo.dia, &nuevo.mes, &nuevo.anios);
-
-    printf("\nUsuario registrado con �xito\n");
-    return nuevo;
-}
-
-// FUNCION 3
-void guardar_Usuario(stUsuario usuario)
-{
-    FILE *file = fopen(ARCHIVO_CLIENTES, "ab");
-    if (file == NULL)
-    {
-        printf("Error al abrir el archivo\n");
-        return;
-    }
-    fwrite(&usuario, sizeof(stUsuario), 1, file);
-    fclose(file);
-}
-
-// FUNCION 4
-int verificar_Usuario(char correo[], char contrasena[])
-{
-    FILE *file = fopen(ARCHIVO_CLIENTES, "rb");
-    if(file == NULL)
-    {
-        return 0;
-    }
-    stUsuario usuario;
-    int encontrado = 0;
-    while(fread(&usuario, sizeof(stUsuario), 1, file) > 0)
-    {
-        if(strcmp(usuario.correo, correo) == 0 && strcmp(usuario.contrasena, contrasena) == 0)
-        {
-            encontrado = 1;
-            break;
-        }
-    }
-    fclose(file);
-    return encontrado;
-}
-
-// FUNCION 5
-void iniciarSesion()
-{
-    char correo[50], contrasena[50];
-    printf("\n------ INICIAR SESION ------\n");
-    printf("Correo: ");
-    scanf("%s", correo);
-    printf("Contrase�a: ");
-    scanf("%s", contrasena);
-    system("cls");
-
-    if(verificar_Usuario(correo, contrasena))
-    {
-        printf("\nSesion iniciada correctamente\n\n");
-        /// AC� VA EL MEN� INTERNO (todav�a no lo copi�)
-    }
-    else
-    {
-        printf("\nCorreo o contrase�a incorrectos\n");
-    }
-}
-
-
-
->>>>>>> Stashed changes
