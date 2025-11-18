@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -178,6 +179,8 @@ void iniciarSesion()
     }
 }
 =======
+=======
+>>>>>>> Stashed changes
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
