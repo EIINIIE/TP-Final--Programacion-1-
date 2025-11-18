@@ -3,8 +3,12 @@
 #include "venta.h"
 #include "fecha.h"
 #include "auto_cliente.h"
+#include "cliente.h" // Necesario para la estructura Cliente
 
-#define ARCHIVO_AUTOS "autos.bin" /// lo vamos a usar
+// Definimos los archivos aquí para evitar errores de "undeclared identifier"
+#define ARCHIVO_AUTOS "autos.bin"
+#define ARCHIVO_CLIENTES "clientes.bin"
+#define ARCHIVO_VENTAS "ventas.bin"
 
 // FUNCION 1
 Venta cargarVenta()
@@ -41,12 +45,12 @@ Venta cargarVenta()
         }
         else
         {
-            printf("\n❌ Error al abrir el archivo de autos.\n");
+            printf("\nError al abrir el archivo de autos.\n");
             break;
         }
 
         if(!existeAuto)
-            printf("⚠ Auto no encontrado. Intente nuevamente.\n");
+            printf("Auto no encontrado. Intente nuevamente.\n");
 
     } while(!existeAuto);
 
@@ -77,12 +81,12 @@ Venta cargarVenta()
         }
         else
         {
-            printf("\n❌ Error al abrir el archivo de clientes.\n");
+            printf("\nError al abrir el archivo de clientes.\n");
             break;
         }
 
         if(!existeCliente)
-            printf("⚠ Cliente no encontrado. Intente nuevamente.\n");
+            printf("Cliente no encontrado. Intente nuevamente.\n");
 
     } while(!existeCliente);
 
@@ -101,14 +105,14 @@ void registrarVenta()
     if(arch != NULL)
     {
         if(fwrite(&ventas, sizeof(Venta), 1, arch) == 1)
-            printf("\n✅ Venta registrada correctamente.\n");
+            printf("\nVenta registrada correctamente.\n");
         else
-            printf("\n❌ Error al escribir la venta en el archivo.\n");
+            printf("\nError al escribir la venta en el archivo.\n");
 
         fclose(arch);
     }
     else
-        printf("\n❌ Error al abrir el archivo de ventas.\n");
+        printf("\nError al abrir el archivo de ventas.\n");
 }
 
 // FUNCION 3
