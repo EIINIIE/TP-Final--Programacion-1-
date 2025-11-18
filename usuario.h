@@ -22,8 +22,11 @@ stUsuario registro_Usuario();
 void guardar_Usuario(stUsuario usuario);
 int verificacion_de_Usuario(char correo[], char contrasena[]);
 void iniciarSesion();
+void mostrarTodosLosUsuarios();
+int cargarUsuariosEnArreglo(stUsuario arr[], int tope);
+void mostrarUsuariosRecursivo(stUsuario arr[], int pos, int total);
 
 #endif // USUARIO_H_INCLUDED
-///Esto va al final porque #endif es el cierre de una condici�n
+///Esto va al final porque #endif es el cierre de una condicion
 
 
