@@ -19,7 +19,9 @@ typedef struct
 
 // ------- Prototipo -------
 int iniciarSesion_empleado();
-void funcion_iniciarSesion_empleado();
+void menu_empleado_directo();
+
+
 
 
 

@@ -187,7 +187,9 @@ void login_empresa()
         if (strcmp(correo, emple.correo) == 0 && strcmp(contrasena, emple.contrasena) == 0)
         {
             encontrado = 1;
-            printf("Inicio de sesion exitoso - Rol: %s\n", emple.rol);
+            printf("Inicio de sesion exitoso – Rol: %s\n", emple.rol);
+            system("pause");
+            system("cls");
 
             if (strcmp(emple.rol, "administrador") == 0)
             {
@@ -195,16 +197,9 @@ void login_empresa()
             }
             else
             {
-                funcion_iniciarSesion_empleado();
+                menu_empleado_directo(); // función sin login otra vez
             }
             break;
         }
-    }
-
-    fclose(file);
-
-    if (!encontrado)
-    {
-        printf("Correo o contrasena incorrectos.\n");
     }
 }

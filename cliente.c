@@ -20,8 +20,9 @@ Cliente cargar_persona()
     scanf("%s", datos.telefono);
     printf("Direccion: ");
     fflush(stdin);
-    gets(datos.direccion);
+   scanf("%s", datos.direccion);
     printf("Rol: ");
+    fflush(stdin);
     scanf("%s", datos.rol);
     printf("------------------------\n\n");
 
