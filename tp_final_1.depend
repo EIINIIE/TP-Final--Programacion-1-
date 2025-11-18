@@ -281,7 +281,7 @@
 	<string.h>
 	"cliente.h"
 
-1761502256 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\empleado.c
+1763488472 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\empleado.c
 	<stdio.h>
 	<string.h>
 	"empleado.h"
@@ -289,7 +289,7 @@
 	"auto_cliente.h"
 	"autos_disponibles.h"
 
-1761430553 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\empleado.h
+1763488472 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\empleado.h
 
 1761430553 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\fecha.c
 	<stdio.h>
@@ -298,14 +298,15 @@
 
 1761257485 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\fecha.h
 
-1761257485 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\gerente.c
+1763488472 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\gerente.c
 	<stdio.h>
 	<string.h>
+	<stdlib.h>
 	"gerente.h"
 
-1761405014 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\gerente.h
+1763488472 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\gerente.h
 
-1761524118 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\main.c
+1763488410 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -316,7 +317,7 @@
 	"empleado.h"
 	"LOING.h"
 
-1761502256 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\usuario.h
+1763488472 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\usuario.h
 
 1761432895 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\auto.h
 	"cliente.h"
@@ -365,19 +366,21 @@
 
 1761529067 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\autos_disponibles.h
 
-1761502256 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\loing.c
+1763488472 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\loing.c
 	<stdio.h>
 	<stdlib.h>
 	"LOING.h"
 	"usuario.h"
 	"empleado.h"
+	"gerente.h"
 
-1761502256 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\loing.h
+1763488472 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\loing.h
 
 1761529067 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\pagos.h
 	"fecha.h"
 
-<<<<<<< HEAD
+1761529067 D
+
 1762558939 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\loing.c
 	<stdio.h>
 	<stdlib.h>
@@ -410,5 +413,5 @@
 
 1762374023 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\autos_disponibles.h
 
-=======
->>>>>>> b2ddd3a81b1257d286a473934a0e3828d1b2623a
+1762374023 dd3a81b1257d286a473934a0e3828d1b2623a
+
