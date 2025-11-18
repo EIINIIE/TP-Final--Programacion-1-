@@ -1,6 +1,9 @@
 #ifndef LOING_H_INCLUDED
 #define LOING_H_INCLUDED
 
-void menu_login(); // Prototipo del menú de login
+// ------- Prototipos Pï¿½blicos -------
+void menu_login(); // Prototipo del menï¿½ de login
+void login_empresa();
+void login_administrador();
 
 #endif // LOING_H_INCLUDED

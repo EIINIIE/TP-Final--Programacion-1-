@@ -135,7 +135,7 @@
 	"auto_cliente.h"
 	"autos_disponibles.h"
 
-1761427533 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\empleado.h
+1763487846 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\empleado.h
 
 1761423008 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\fecha.c
 	<stdio.h>
@@ -151,7 +151,7 @@
 
 1761400651 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\gerente.h
 
-1761455397 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\main.c
+1763437034 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -162,16 +162,16 @@
 	"empleado.h"
 	"LOING.h"
 
-1761455132 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\usuario.h
+1763487846 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\usuario.h
 
-1761432556 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\venta.c
+1763437034 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\venta.c
 	<stdio.h>
 	<string.h>
 	"venta.h"
 	"fecha.h"
 	"auto_cliente.h"
 
-1761355903 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\venta.h
+1763437034 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\venta.h
 	"fecha.h"
 
 1761455148 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\usuario.c
@@ -340,9 +340,9 @@
 	<stdio.h>
 	"autos_disponibles.h"
 
-1761437570 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\autos_disponibles.h
+1763437034 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\autos_disponibles.h
 
-1761438859 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\pagos.c
+1763437034 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\pagos.c
 
 1761457238 source:c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\loing.c
 	<stdio.h>
@@ -351,5 +351,5 @@
 	"usuario.h"
 	"empleado.h"
 
-1761454776 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\loing.h
+1763487846 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\loing.h
 

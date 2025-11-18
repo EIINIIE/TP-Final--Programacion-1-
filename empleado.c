@@ -3,12 +3,12 @@
 #include "empleado.h"
 #include <stdlib.h>
 
-#include "auto_cliente.h"
-
+//#include "auto_cliente.h"
+#include "auto.h"
 #include "autos_disponibles.h" /// YA CARGADOS
 
 
-#define ARCHIVO_EMPLEADO "empleado.bin"
+//#define ARCHIVO_EMPLEADO "empleado.bin"
 
 /// funcion 1
 
@@ -28,7 +28,7 @@ int iniciarSesion_empleado()
     printf("Ingrese su correo: ");
     scanf("%s", correoIngresado);
 
-    printf("Ingrese su contraseña: ");
+    printf("Ingrese su contraseï¿½a: ");
     scanf("%s", contrasenaIngresada);
 
     system("cls");
@@ -41,7 +41,7 @@ int iniciarSesion_empleado()
     }
     else
     {
-        printf("Correo o contraseña incorrectos.\n");
+        printf("Correo o contraseï¿½a incorrectos.\n");
         return 0;
     }
 }
@@ -129,6 +129,7 @@ void funcion_iniciarSesion_empleado()
                 printf("------------------------------\n\n");
 
                 agregar_autos();
+
 
 
                 break;
