@@ -3,6 +3,42 @@
 #include "autos_disponibles.h"
 #include "auto.h" // <--- IMPORTANTE: Aquí está la estructura 'Auto' real
 
+
+void mostrar_un_auto(Auto a)
+{
+    printf("--------------------------\n");
+    printf("Patente: %s\n", a.patente);
+    printf("marca: %s\n", a.marca);
+    printf("modelo: %s\n", a.modelo);
+    printf("kilometraje: %d", a.kms);
+    printf("precio: $%.2f\n", a.precioFinal);
+    printf("--------------------------\n\n");
+}
+
+
+void mostrar_auto_recursivo( FILE* file,  int pos, int total)
+{
+    if(pos >= total)
+    {
+        return;
+
+    }
+
+
+    fseek(file, pos* sizeof(Auto), SEEK_SET);
+
+    Auto a;
+
+    if(fread(&a, sizeof(Auto), 1, file) == 1)
+    {
+        mostrar_un_auto(a);
+    }
+
+
+    mostrar_auto_recursivo(file,pos + 1, total);
+}
+
+
 void mostrar_todos_autos_disponibles()
 {
     // Abrimos el MISMO archivo donde escribe el Gerente/Admin
@@ -16,8 +52,16 @@ void mostrar_todos_autos_disponibles()
         return;
     }
 
-    Auto a; // Usamos la estructura real de la empresa
-    int hayAutos = 0;
+    fseek(file, 0, SEEK_END);
+    int total = ftell(file) / sizeof(Auto);
+    rewind(file);
+
+    if(total == 0)
+    {
+     printf("el archivo esta vacio\n");
+     fclose(file);
+     return;
+    }
 
     printf("\n==========================================================\n");
     printf("               AUTOS DISPONIBLES (Stock Real)             \n");
@@ -25,25 +69,12 @@ void mostrar_todos_autos_disponibles()
     printf("PATENTE      | MARCA        | MODELO       | PRECIO       \n");
     printf("----------------------------------------------------------\n");
 
-    // Leemos el archivo registro por registro
-    while(fread(&a, sizeof(Auto), 1, file) == 1)
-    {
-        // Asumimos que si tiene patente valida, el auto es valido
-        printf("%-12s | %-12s | %-12s | $%.2f\n",
-               a.patente,
-               a.marca,
-               a.modelo,
-               a.precioFinal); // O precioDeAdquisicion, segun tu logica
-        hayAutos = 1;
-    }
 
-    if(!hayAutos)
-    {
-        printf("\n   El archivo existe pero esta vacio.\n");
-    }
+    mostrar_auto_recursivo(file, 0, total);
 
     printf("==========================================================\n");
     printf("NOTA: Copie la PATENTE exacta para proceder a la compra.\n");
 
     fclose(file);
 }
+

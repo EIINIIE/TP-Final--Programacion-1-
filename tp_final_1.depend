@@ -199,7 +199,7 @@
 	"cliente.h"
 	"pagos.h"
 
-1763493694 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\auto.c
+1763507811 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\auto.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -208,17 +208,17 @@
 	"cliente.h"
 	"pagos.h"
 
-1763493694 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\auto.h
+1763507811 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\auto.h
 	"cliente.h"
 
 1762374024 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\cliente.h
 
-1763495645 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\cliente.c
+1763508001 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\cliente.c
 	<stdio.h>
 	<string.h>
 	"cliente.h"
 
-1763497141 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\empleado.c
+1763508001 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\empleado.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
@@ -229,9 +229,9 @@
 	"cliente.h"
 	"pagos.h"
 
-1763497484 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\empleado.h
+1763508002 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\empleado.h
 
-1763493694 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\gerente.c
+1763507811 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\gerente.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
@@ -244,7 +244,7 @@
 	"venta.h"
 	"auto.h"
 
-1763493694 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\gerente.h
+1763507811 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\gerente.h
 
 1763493694 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\main.c
 	<stdio.h>
@@ -269,7 +269,7 @@
 	"cliente.h"
 	"pagos.h"
 
-1763493694 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\venta.c
+1763507811 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\venta.c
 	<stdio.h>
 	<string.h>
 	"venta.h"
@@ -278,7 +278,7 @@
 	"auto_cliente.h"
 	"cliente.h"
 
-1763493694 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\venta.h
+1763507811 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\venta.h
 	"fecha.h"
 
 1762374004 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\fecha.h
@@ -468,7 +468,7 @@
 
 1763491319 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\pagos.h
 
-1763497498 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\loing.c
+1763508002 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\loing.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -477,22 +477,22 @@
 	"empleado.h"
 	"gerente.h"
 
-1763493694 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\pagos.c
+1763507811 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\pagos.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"pagos.h"
 	"auto.h"
 
-1763493694 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\pagos.h
+1763507811 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\pagos.h
 
-1763493694 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\auto_cliente.c
+1763507811 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\auto_cliente.c
 	<stdio.h>
 	<stdlib.h>
 	"auto_cliente.h"
 	"cliente.h"
 
-1763493694 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\auto_cliente.h
+1763507811 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\auto_cliente.h
 	"cliente.h"
 
 1763493694 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\autos_disponibles.c
@@ -501,11 +501,11 @@
 	"autos_disponibles.h"
 	"auto.h"
 
-1763493694 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\autos_disponibles.h
+1763507811 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\autos_disponibles.h
 
 1762374023 dd3a81b1257d286a473934a0e3828d1b2623a
 
 1763491053 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\pagos.h
 
-1763493694 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\loing.h
+1763507811 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\loing.h
 
