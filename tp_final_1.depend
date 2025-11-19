@@ -304,7 +304,7 @@
 	"auto_cliente.h"
 	"cliente.h"
 
-1761502256 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\auto_cliente.h
+1763512460 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\auto_cliente.h
 	"cliente.h"
 
 1761248097 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\cliente.h
@@ -358,7 +358,7 @@
 	"empleado.h"
 	"gerente.h"
 
-1763489433 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\empleado.h
+1763508273 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\empleado.h
 
 1761430553 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\fecha.c
 	<stdio.h>
@@ -368,18 +368,24 @@
 	<string.h>
 	"fecha.h"
 
-1761257485 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\fecha.h
+1763502836 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\fecha.h
 
-1763491419 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\gerente.c
+1763502836 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\gerente.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
 	"gerente.h"
 	"empleado.h"
+	"cliente.h"
+	"auto_cliente.h"
+	"autos_disponibles.h"
+	"pagos.h"
+	"venta.h"
+	"auto.h"
 
-1763489433 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\gerente.h
+1763508061 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\gerente.h
 
-1763489433 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\main.c
+1763502836 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -390,9 +396,9 @@
 	"empleado.h"
 	"LOING.h"
 
-1763489434 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\usuario.h
+1763512460 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\usuario.h
 
-1761432895 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\auto.h
+1763502836 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\auto.h
 	"cliente.h"
 
 1763490712 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\usuario.c
@@ -404,15 +410,16 @@
 	"autos_disponibles.h"
 	"cliente.h"
 
-1763490712 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\venta.c
+1763502836 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\venta.c
 	<stdio.h>
 	<string.h>
 	"venta.h"
 	"fecha.h"
+	"auto.h"
 	"auto_cliente.h"
 	"cliente.h"
 
-1763489434 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\venta.h
+1763502836 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\venta.h
 	"fecha.h"
 
 1761529073 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\autos_disponibles.c
@@ -453,9 +460,9 @@
 
 1763489938 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\loing.h
 
-1763489433 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\autos_disponibles.h
+1763502836 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\autos_disponibles.h
 
-1763491419 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\loing.c
+1763508273 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\loing.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -464,9 +471,9 @@
 	"empleado.h"
 	"gerente.h"
 
-1763489433 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\loing.h
+1763502836 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\loing.h
 
-1763491319 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\pagos.h
+1763502836 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\pagos.h
 
 1763508002 source:c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\loing.c
 	<stdio.h>
@@ -508,4 +515,13 @@
 1763491053 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\pagos.h
 
 1763507811 c:\users\coty_\onedrive\documentos\github\tp-final--programacion-1-\loing.h
+
+1763502836 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\auto.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"auto.h"
+	"cliente.h"
+	"pagos.h"
 

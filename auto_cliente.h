@@ -23,5 +23,6 @@ AutoCliente cargar_auto_cliente(); // Renombramos funcion
 void agregar_autos_cliente();      // Renombramos funcion
 void mostrar_auto_cliente(AutoCliente autos); // Renombramos funcion
 void mostrar_todos_autos_cliente();
+int cargar_autos_cliente_din(AutoCliente **listaAutos);
 
 #endif // AUTO_CLIENTE_H_INCLUDED

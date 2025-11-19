@@ -51,7 +51,6 @@ void eliminar_auto_stock(char patenteEliminar[])
 }
 
 // --- FUNCIONES AUXILIARES DE SIEMPRE ---
-
 void ordenarPorPatente(Auto autos[], int validos)
 {
     Auto aux;
@@ -88,7 +87,6 @@ int buscarPatenteBinaria(Auto autos[], int validos, char patenteBuscada[])
 }
 
 // --- GESTION DE PAGOS (Actualizada) ---
-
 void gestionDePagos()
 {
     FILE *file = fopen("autos.bin", "rb");

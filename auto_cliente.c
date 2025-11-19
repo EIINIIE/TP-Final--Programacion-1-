@@ -84,3 +84,45 @@ void mostrar_todos_autos_cliente()
     }
     fclose(file);
 }
+
+/// funcion 5
+int cargar_autos_cliente_din(AutoCliente **listaAutos)
+{
+    FILE *file = fopen(ARCHIVO_AUTOS_CLIENTE, "rb");
+    if (file == NULL)
+    {
+        printf("No se pudo abrir el archivo.\n");
+        return 0;
+    }
+
+    AutoCliente temp;
+    int cantidad = 0;
+
+    // Primera pasada: contamos cuántos autos hay
+    while (fread(&temp, sizeof(AutoCliente), 1, file) == 1)
+    {
+        cantidad++;
+    }
+
+    rewind(file); // este era para volver al principio
+
+    // Reservamos memoria dinámica (puntero doble)
+    *listaAutos = (AutoCliente *) malloc (cantidad * sizeof(AutoCliente));
+
+    if (*listaAutos == NULL)
+    {
+        printf("Error al asignar memoria.\n");
+        fclose(file);
+        return 0;
+    }
+
+    // Segunda pasada: copiamos los datos
+    for (int i = 0; i < cantidad; i++)
+    {
+        fread(&(*listaAutos)[i], sizeof(AutoCliente), 1, file); /// aca lo que hago es copiar cada auto en el arreglos Dinamicos
+    }
+
+    fclose(file);
+    return cantidad; // devolvemos cuántos autos cargamos
+}
+

@@ -17,11 +17,8 @@ int iniciarSesion_empleado()
 {
     stEmpleado empleado;
 
-
-
     strcpy(empleado.correo, "empleado_123@gmail.com");
     strcpy(empleado.contrasena, "empleado123");
-
 
     char correoIngresado[50];
     char contrasenaIngresada[50];
@@ -63,7 +60,6 @@ int verificar_Usuario_empleado(char correo[], char contrasena[])
 }
 
 /// ------------------------------------------------------------------------------------------------------
-
 /// FUNCION 3
 void menu_empleado_directo()
 {

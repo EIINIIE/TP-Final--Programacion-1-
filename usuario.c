@@ -115,7 +115,8 @@ void iniciarSesion()
             printf("2. Dato del auto del cliente\n");
             printf("3. Autos disponibles\n");
             printf("4. Pagos\n");
-            printf("5. Volver al inicio\n");
+            printf("5. Mostrar todos los usuarios (recursivo)\n");
+            printf("6. Volver al inicio\n");
             printf("0. Salir\n");
             printf("-------------------------------------\n");
             printf("\nElija una opcion: ");
@@ -149,6 +150,10 @@ void iniciarSesion()
                 break;
 
             case 5:
+                mostrarTodosLosUsuarios();
+                break;
+
+            case 6:
                 printf("Volviendo al inicio...\n");
                 opcion_sesion = 0;
                 break;
@@ -169,7 +174,6 @@ void iniciarSesion()
 }
 
 /// Nuevo Recursivo
-
 void mostrarTodosLosUsuarios()
 {
     stUsuario usuarios[100];
@@ -184,7 +188,6 @@ void mostrarTodosLosUsuarios()
     printf("\n--- LISTA DE USUARIOS (Recursivo) ---\n");
     mostrarUsuariosRecursivo(usuarios, 0, cantidad);
 }
-
 
 int cargarUsuariosEnArreglo(stUsuario arr[], int tope) /// el int tope le doy un valor de 50
 {

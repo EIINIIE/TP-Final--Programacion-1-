@@ -3,7 +3,6 @@
 #include "autos_disponibles.h"
 #include "auto.h" // <--- IMPORTANTE: Aquí está la estructura 'Auto' real
 
-
 void mostrar_un_auto(Auto a)
 {
     printf("--------------------------\n");
@@ -15,7 +14,6 @@ void mostrar_un_auto(Auto a)
     printf("--------------------------\n\n");
 }
 
-
 void mostrar_auto_recursivo( FILE* file,  int pos, int total)
 {
     if(pos >= total)
@@ -23,7 +21,6 @@ void mostrar_auto_recursivo( FILE* file,  int pos, int total)
         return;
 
     }
-
 
     fseek(file, pos* sizeof(Auto), SEEK_SET);
 
@@ -34,10 +31,8 @@ void mostrar_auto_recursivo( FILE* file,  int pos, int total)
         mostrar_un_auto(a);
     }
 
-
     mostrar_auto_recursivo(file,pos + 1, total);
 }
-
 
 void mostrar_todos_autos_disponibles()
 {
