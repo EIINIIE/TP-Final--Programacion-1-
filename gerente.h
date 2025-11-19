@@ -22,4 +22,4 @@ void eliminar_empleado();
 void mostrar_empleados();
 
 #endif // GERENTE_H_INCLUDED
-///Esto va al final porque #endif es el cierre de una condici�n
+///Esto va al final porque #endif es el cierre de una condicion

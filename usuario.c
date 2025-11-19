@@ -167,3 +167,54 @@ void iniciarSesion()
         printf("\nCorreo o contrasenia incorrectos\n");
     }
 }
+
+/// Nuevo Recursivo
+
+void mostrarTodosLosUsuarios()
+{
+    stUsuario usuarios[100];
+    int cantidad = cargarUsuariosEnArreglo(usuarios, 50); /// la cantidad seria los datos cargados de los usuarios
+
+    if(cantidad == 0)
+    {
+        printf("No hay usuarios registrados.\n");
+        return;
+    }
+
+    printf("\n--- LISTA DE USUARIOS (Recursivo) ---\n");
+    mostrarUsuariosRecursivo(usuarios, 0, cantidad);
+}
+
+
+int cargarUsuariosEnArreglo(stUsuario arr[], int tope) /// el int tope le doy un valor de 50
+{
+    FILE* file = fopen(ARCHIVO_CLIENTES, "rb");
+    if(file == NULL)
+    {
+        return 0;
+    }
+
+    int i = 0;
+    while(i < tope && fread(&arr[i], sizeof(stUsuario), 1, file) == 1)
+    {
+        i++;
+    }
+    fclose(file);
+    return i;
+}
+
+void mostrarUsuariosRecursivo(stUsuario arr[], int pos, int total) /// el pos es la posicion estas posicionado en 0 /// total es la cantidad de usuarios cargados
+{
+    if(pos == total)
+    {
+        return;
+}
+    // Mostrar usuario
+    printf("Correo: %s\n", arr[pos].correo);
+    printf("DNI: %d\n", arr[pos].dni);
+    printf("Nacimiento: %d/%d/%d\n", arr[pos].dia, arr[pos].mes, arr[pos].anios);
+    printf("-------------------------------------\n");
+
+    mostrarUsuariosRecursivo(arr, pos + 1, total);
+}
+

@@ -1,8 +1,8 @@
 #ifndef EMPLEADO_H_INCLUDED
 #define EMPLEADO_H_INCLUDED
 
-// ------- Definici�n de Archivo Centralizada -------
-#define ARCHIVO_EMPLEADOS "empleados.bin" // <--- A�ADIDO (y unificado)
+// ------- Definicion de Archivo Centralizada -------
+#define ARCHIVO_EMPLEADOS "empleados.bin"
 
 // ------- Estructura Empleado -------
 
@@ -26,4 +26,4 @@ void menu_empleado_directo();
 
 
 #endif // EMPLEADO_H_INCLUDED
-///Esto va al final porque #endif es el cierre de una condici�n
+///Esto va al final porque #endif es el cierre de una condicion
