@@ -3,11 +3,12 @@
 #include "fecha.h"
 
 /// FUNCION 1
-void cargar_Fecha()
+Fecha cargar_Fecha()
 {
     Fecha f;
     printf("\n(dd/mm/aaaa): ");
     scanf("%d %d %d", &f.dia, &f.mes, &f.anio);
+    return f;
 }
 
 /// FUNCION 2

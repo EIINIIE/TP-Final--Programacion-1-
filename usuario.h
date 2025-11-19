@@ -1,9 +1,10 @@
 #ifndef USUARIO_H_INCLUDED
 #define USUARIO_H_INCLUDED
 
-#define ARCHIVO_CLIENTES "clientes.bin"
+// --- CORRECCIÓN CRÍTICA: Usamos un archivo distinto para usuarios de login ---
+#define ARCHIVO_USUARIOS "usuarios.bin"
 
-// ------- Estructuras -------
+// ------- Estructura usuario -------
 typedef struct
 {
     char correo[50];
@@ -14,17 +15,14 @@ typedef struct
     int anios;
 } stUsuario;
 
-/// -------- Prototipos --------
+// ------- Prototipo -------
 int usuario_existente(char correo[]);
 stUsuario registro_Usuario();
 void guardar_Usuario(stUsuario usuario);
-int verificacion_de_Usuario(char correo[], char contrasena[]);
+int verificar_Usuario(char correo[], char contrasena[]);
 void iniciarSesion();
 void mostrarTodosLosUsuarios();
 int cargarUsuariosEnArreglo(stUsuario arr[], int tope);
 void mostrarUsuariosRecursivo(stUsuario arr[], int pos, int total);
 
 #endif // USUARIO_H_INCLUDED
-///Esto va al final porque #endif es el cierre de una condicion
-
-

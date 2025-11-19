@@ -85,7 +85,13 @@ void mostrar_todos_autos_cliente()
     fclose(file);
 }
 
-/// funcion 5
+/// FUNCION 5
+void modificar_auto_cliente_por_dni(char dniBuscado[])
+{
+    /// Falta...
+}
+
+/// FUNCION 6
 int cargar_autos_cliente_din(AutoCliente **listaAutos)
 {
     FILE *file = fopen(ARCHIVO_AUTOS_CLIENTE, "rb");
@@ -95,7 +101,7 @@ int cargar_autos_cliente_din(AutoCliente **listaAutos)
         return 0;
     }
 
-    AutoCliente temp;
+    AutoCliente temp; /// temp seria temporal que sirve
     int cantidad = 0;
 
     // Primera pasada: contamos cuántos autos hay

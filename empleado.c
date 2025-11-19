@@ -3,77 +3,31 @@
 #include <stdlib.h>
 #include "empleado.h"
 #include "auto.h"
-#include "auto_cliente.h" // Para agregar_autos
+#include "auto_cliente.h"
 #include "autos_disponibles.h"
-#include "cliente.h" // Para cargar_persona
+#include "cliente.h"
 #include "pagos.h"
 
-
-//#define ARCHIVO_EMPLEADO "empleado.bin"
-
-/// funcion 1
-
-int iniciarSesion_empleado()
-{
-    stEmpleado empleado;
-
-    strcpy(empleado.correo, "empleado_123@gmail.com");
-    strcpy(empleado.contrasena, "empleado123");
-
-    char correoIngresado[50];
-    char contrasenaIngresada[50];
-
-    printf("Ingrese su correo: ");
-    scanf("%s", correoIngresado);
-
-    printf("Ingrese su contrasena: ");
-    scanf("%s", contrasenaIngresada);
-
-    system("cls");
-
-    if (strcmp(correoIngresado, empleado.correo) == 0 &&
-            strcmp(contrasenaIngresada, empleado.contrasena) == 0)
-    {
-        printf("Inicio de sesion exitoso!\n");
-        return 1;
-    }
-    else
-    {
-        printf("Correo o contrasena incorrectos.\n");
-        return 0;
-    }
-}
-
-/// funcion 2
-int verificar_Usuario_empleado(char correo[], char contrasena[])
-{
-    stEmpleado empleado;
-    strcpy(empleado.correo, "empleado_123@gmail.com");
-    strcpy(empleado.contrasena, "empleado123");
-
-    if (strcmp(correo, empleado.correo) == 0 &&
-            strcmp(contrasena, empleado.contrasena) == 0)
-    {
-        return 1;
-    }
-    return 0;
-}
-
-/// ------------------------------------------------------------------------------------------------------
-/// FUNCION 3
+// Esta función se llama DESPUÉS de validar usuario/pass en LOING.c
+// Por eso entra directo al menú sin pedir credenciales de nuevo.
 void menu_empleado_directo()
 {
     int opcion_sesion;
+
+    printf("\n====================================================\n");
+    printf("          SESION INICIADA: EMPLEADO DE PLANTA       \n");
+    printf("====================================================\n");
+
     do
     {
+        printf("\n--- MENU DE EMPLEADO ---\n");
+        printf("1. Datos del cliente (Cargar)\n");
+        printf("2. Dato del auto del cliente (Cargar)\n");
+        printf("3. Autos disponibles (Ver Stock)\n");
+        printf("4. Pagos (Vender Auto)\n");
+        printf("5. Volver al inicio\n");
+        printf("0. Salir (Volver al Login)\n"); // <--- Texto actualizado
         printf("-------------------------------------\n");
-        printf("1. Datos del cliente \n");
-        printf("2. Dato del auto del cliente \n");
-        printf("3. Autos disponibles \n");
-        printf("4. Pagos \n");
-        printf("5. Volver al inicio \n");
-        printf("0. Salir \n");
-        printf("-------------------------------------\n\n");
 
         printf("Elija una opcion: ");
         scanf("%d", &opcion_sesion);
@@ -81,34 +35,49 @@ void menu_empleado_directo()
 
         switch(opcion_sesion)
         {
-            case 0:
-                printf("Saliendo...\n");
-                return;
+        case 1:
+            printf("\n--- CARGA DE CLIENTE ---\n");
+            Cliente nuevoC = cargar_persona(); // 1. Cargamos
+            guardar_cliente_en_archivo(nuevoC); // 2. Guardamos
+            break;
 
-            case 1:
-                cargar_persona();
-                break;
+        case 2:
+            printf("\n--- CARGA DE AUTO DE CLIENTE ---\n");
+            agregar_autos_cliente();
+            break;
 
-            case 2:
-                agregar_autos_cliente();
-                break;
+        case 3:
+            mostrar_todos_autos_disponibles();
+            break;
 
-            case 3:
-                mostrar_todos_autos_disponibles();
-                break;
+        case 4:
+            gestionDePagos();
+            break;
 
-            case 4:
-                gestionDePagos();
-                break;
+        case 5:
+            printf("Volviendo al menu principal...\n");
+            opcion_sesion = 0; // Esto fuerza la salida del bucle
+            break;
 
-            case 5:
-                opcion_sesion = 0;
-                break;
+        case 0:
+            printf("Cerrando sesion y volviendo al inicio...\n");
+            // AQUI ESTA EL CAMBIO: Quitamos exit(0)
+            // Al no haber exit, el programa sale del switch,
+            // el while(opcion_sesion != 0) detecta que es 0 y termina la función.
+            // Regresa automaticamente a LOING.c
+            break;
 
-            default:
-                printf("Opcion no valida\n");
-                break;
+        default:
+            printf("Opcion no valida. Intente nuevamente.\n");
+            break;
         }
 
-    } while(opcion_sesion != 0);
+        // Pausa para ver los resultados, excepto si elige volver (5) o salir (0)
+        if (opcion_sesion != 0)
+        {
+            system("pause");
+            system("cls");
+        }
+    }
+    while(opcion_sesion != 0);
 }

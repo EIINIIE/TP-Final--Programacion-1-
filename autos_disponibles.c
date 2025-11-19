@@ -42,8 +42,8 @@ void mostrar_todos_autos_disponibles()
 
     if(file == NULL)
     {
-        printf("\n[!] No hay autos disponibles en stock por el momento.\n");
-        printf("    (El gerente debe cargar autos primero).\n");
+        printf("\nNo hay autos disponibles en stock por el momento.\n");
+        printf("(El gerente debe cargar autos primero).\n");
         return;
     }
 
@@ -53,9 +53,9 @@ void mostrar_todos_autos_disponibles()
 
     if(total == 0)
     {
-     printf("el archivo esta vacio\n");
-     fclose(file);
-     return;
+        printf("el archivo esta vacio\n");
+        fclose(file);
+        return;
     }
 
     printf("\n==========================================================\n");
@@ -63,7 +63,6 @@ void mostrar_todos_autos_disponibles()
     printf("==========================================================\n");
     printf("PATENTE      | MARCA        | MODELO       | PRECIO       \n");
     printf("----------------------------------------------------------\n");
-
 
     mostrar_auto_recursivo(file, 0, total);
 

@@ -3,9 +3,9 @@
 
 #include "cliente.h"
 
-#define ARCHIVO_AUTOS_CLIENTE "autos_cliente.bin" // Cambiamos el define para no chocar
+#define ARCHIVO_AUTOS_CLIENTE "autos_cliente.bin"
 
-// ------- Estructura AutoCliente (Renombrada) -------
+// ------- Estructura Autos Cliente -------
 typedef struct
 {
     char patente[11];
@@ -16,13 +16,15 @@ typedef struct
     Cliente titular;
     float precioDeAdquisicion;
     float precioFinal;
-} AutoCliente; // <--- AQUI ESTA EL CAMBIO CLAVE
+} AutoCliente;
 
 // ------- Prototipos -------
-AutoCliente cargar_auto_cliente(); // Renombramos funcion
-void agregar_autos_cliente();      // Renombramos funcion
-void mostrar_auto_cliente(AutoCliente autos); // Renombramos funcion
+AutoCliente cargar_auto_cliente();
+void agregar_autos_cliente();
+void mostrar_auto_cliente(AutoCliente autos);
 void mostrar_todos_autos_cliente();
-int cargar_autos_cliente_din(AutoCliente **listaAutos);
+// Nueva funcion para el menu de empleado
+void modificar_auto_cliente_por_dni(char dniBuscado[]); /// flata crear la funcion y llamarlo
+int cargar_autos_cliente_din(AutoCliente **listaAutos); /// ver en donde llamarlo
 
 #endif // AUTO_CLIENTE_H_INCLUDED

@@ -53,7 +53,7 @@ void agregar_autos()
 // FUNCION 3: Mostrar un auto
 void mostrar_auto(Auto a)
 {
-    printf("Patente: %-10s | Marca: %-10s | Modelo: %-10s | Precio: $%.2f\n",
+    printf("Patente: %s | Marca: %s | Modelo: %s | Precio: $%.2f\n",
            a.patente, a.marca, a.modelo, a.precioFinal);
 }
 
@@ -126,5 +126,57 @@ void agregar_auto_stock()
     fwrite(&nuevo, sizeof(Auto), 1, file);
     fclose(file);
 
-    printf("\n[OK] Auto patente %s agregado al stock correctamente.\n", nuevo.patente);
+    printf("\n Auto patente %s agregado al stock correctamente.\n", nuevo.patente);
+}
+
+// 3a. Modificar Auto existente (Requisito del profe)
+void modificar_auto_stock()
+{
+    FILE *file = fopen(ARCHIVO_AUTOS, "r+b"); // r+b permite lectura y escritura
+    if(file == NULL)
+    {
+        printf("Error al abrir stock de autos.\n");
+        return;
+    }
+
+    char patenteBusq[11];
+    printf("\n--- MODIFICAR AUTO DEL STOCK ---\n");
+    printf("Ingrese la patente del auto a modificar: ");
+    scanf("%s", patenteBusq);
+
+    Auto a;
+    int encontrado = 0;
+
+    while(fread(&a, sizeof(Auto), 1, file) == 1)
+    {
+        if(strcmp(a.patente, patenteBusq) == 0)
+        {
+            printf("\nAuto encontrado: %s %s (%d)\n", a.marca, a.modelo, a.anio);
+            printf("Ingrese los NUEVOS datos (si no cambia algo, reescribalo igual):\n");
+
+            printf("Nueva Marca: ");
+            scanf("%s", a.marca);
+            printf("Nuevo Modelo: ");
+            scanf("%s", a.modelo);
+            printf("Nuevo Precio Base: ");
+            scanf("%f", &a.precioDeAdquisicion);
+            printf("Nuevos Kms: ");
+            scanf("%d", &a.kms);
+
+            // Actualizamos precio final
+            a.precioFinal = a.precioDeAdquisicion;
+
+            // Retrocedemos el cursor el tamaño de una estructura para sobreescribir
+            fseek(file, -sizeof(Auto), SEEK_CUR);
+            fwrite(&a, sizeof(Auto), 1, file);
+
+            printf("\n[EXITO] Datos del auto actualizados.\n");
+            encontrado = 1;
+            break;
+        }
+    }
+
+    if(encontrado == 0) printf("No se encontro un auto con esa patente en el stock.\n");
+
+    fclose(file);
 }

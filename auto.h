@@ -5,7 +5,7 @@
 
 #define ARCHIVO_AUTOS "autos.bin"
 
-// ------- Estructura Auto (Stock de la Empresa) -------
+// ------- Estructura auto -------
 typedef struct
 {
     char patente[11];
@@ -18,14 +18,12 @@ typedef struct
     float precioFinal;
 } Auto;
 
-// ------- Prototipos -------
 Auto cargar_auto();
-void agregar_autos(); // Esta es para clientes que traen su auto
+void agregar_autos();
 void mostrar_auto(Auto autos);
 void mostrar_todos_autos(char archivo[]);
 float medioDPago(float precioDeAdquisicion);
-
-// --- NUEVA FUNCION PARA EL GERENTE ---
 void agregar_auto_stock();
+void modificar_auto_stock(); // <--- NUEVO (Req 3a)
 
 #endif // AUTO_H_INCLUDED

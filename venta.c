@@ -2,16 +2,15 @@
 #include <string.h>
 #include "venta.h"
 #include "fecha.h"
-#include "auto.h"          // <--- AGREGAR ESTO (Aquí vive 'Auto')
-#include "auto_cliente.h"  // (Aquí vive 'AutoCliente')
+#include "auto.h"
+#include "auto_cliente.h"
 #include "cliente.h"
 
-// Definimos los archivos aquí para evitar errores
 #define ARCHIVO_AUTOS "autos.bin"
 #define ARCHIVO_CLIENTES "clientes.bin"
 #define ARCHIVO_VENTAS "ventas.bin"
 
-// FUNCION 1
+// FUNCION 1: Carga los datos de la venta y CALCULA la ganancia
 Venta cargarVenta()
 {
     Venta ventas;
@@ -23,8 +22,9 @@ Venta cargarVenta()
     printf("---- CARGA DE VENTA ----\n");
 
     printf("\nIngrese fecha de la venta:\n");
-    cargar_Fecha(&ventas.fecha);
+    ventas.fecha = cargar_Fecha();
 
+    // 1. Buscar Auto y obtener su costo
     do
     {
         printf("\nIngrese patente del auto vendido: ");
@@ -39,7 +39,7 @@ Venta cargarVenta()
                 if(strcmp(a.patente, ventas.patenteAutoVendido) == 0)
                 {
                     existeAuto = 1;
-                    break;
+                    break; // 'a' contiene los datos del auto encontrado
                 }
             }
             fclose(archA);
@@ -50,17 +50,24 @@ Venta cargarVenta()
             break;
         }
 
-        if(!existeAuto)
+        if(existeAuto == 0)
+        {
             printf("Auto no encontrado. Intente nuevamente.\n");
+        }
 
-    } while(!existeAuto);
+    }
+    while(!existeAuto);
 
-    printf("\nIngrese precio de venta: ");
+    // 2. Precio y Ganancia
+    printf("\nPrecio de Costo (Adquisicion): $%.2f", a.precioDeAdquisicion);
+    printf("\nIngrese PRECIO FINAL de venta: ");
     scanf("%f", &ventas.precioVenta);
 
-    printf("Ingrese ganancia obtenida: ");
-    scanf("%f", &ventas.ganancia);
+    // CORRECCION: Calculo automatico (Requisito 3j)
+    ventas.ganancia = ventas.precioVenta - a.precioDeAdquisicion;
+    printf(">> Ganancia calculada: $%.2f\n", ventas.ganancia);
 
+    // 3. Buscar Cliente
     do
     {
         printf("\nIngrese DNI del comprador: ");
@@ -86,10 +93,13 @@ Venta cargarVenta()
             break;
         }
 
-        if(!existeCliente)
+        if(existeCliente == 0)
+        {
             printf("Cliente no encontrado. Intente nuevamente.\n");
+        }
 
-    } while(!existeCliente);
+    }
+    while(existeCliente == 0);
 
     printf("\nIngrese DNI del vendedor: ");
     scanf("%s", ventas.dniVendedor);
@@ -106,9 +116,13 @@ void registrarVenta()
     if(arch != NULL)
     {
         if(fwrite(&ventas, sizeof(Venta), 1, arch) == 1)
-            printf("\nVenta registrada correctamente.\n");
+        {
+            printf("\n Venta registrada correctamente.\n");
+        }
         else
-            printf("\nError al escribir la venta en el archivo.\n");
+        {
+            printf("\n No se pudo escribir en el archivo.\n");
+        }
 
         fclose(arch);
     }
@@ -122,7 +136,7 @@ void mostrarVenta(Venta ventas)
     printf("-----------------------------------------\n");
     printf("Fecha: ");
     mostrar_Fecha(ventas.fecha);
-    printf("Patente Auto Vendido: %s\n", ventas.patenteAutoVendido);
+    printf("Patente: %s\n", ventas.patenteAutoVendido);
     printf("Precio Venta: $%.2f\n", ventas.precioVenta);
     printf("Ganancia: $%.2f\n", ventas.ganancia);
     printf("DNI Comprador: %s\n", ventas.dniComprador);
@@ -137,7 +151,7 @@ void mostrarVentas()
     if(arch != NULL)
     {
         Venta ventas;
-        printf("\n==== LISTA DE VENTAS ====\n");
+        printf("\n==== HISTORIAL DE VENTAS ====\n");
         while(fread(&ventas, sizeof(Venta), 1, arch) == 1)
         {
             mostrarVenta(ventas);
@@ -145,5 +159,7 @@ void mostrarVentas()
         fclose(arch);
     }
     else
-        printf("\nNo se pudo abrir el archivo de ventas.\n");
+    {
+        printf("\n No se pudo abrir el archivo de ventas (o no existen ventas aun).\n");
+    }
 }

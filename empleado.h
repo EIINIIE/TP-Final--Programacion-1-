@@ -1,11 +1,10 @@
 #ifndef EMPLEADO_H_INCLUDED
 #define EMPLEADO_H_INCLUDED
 
-// ------- Definicion de Archivo Centralizada -------
+// ------- Definición de Archivo Centralizada -------
 #define ARCHIVO_EMPLEADOS "empleados.bin"
 
 // ------- Estructura Empleado -------
-
 typedef struct
 {
     char correo[50];
@@ -14,16 +13,11 @@ typedef struct
     int dia;
     int mes;
     int anios;
-    char rol[30];
+    char rol[50]; // <--- CORREGIDO: CAMBIADO DE 30 A 50 PARA COINCIDIR CON GERENTE
 } stEmpleado;
 
 // ------- Prototipo -------
-int iniciarSesion_empleado();
+// Solo funcion del menu
 void menu_empleado_directo();
 
-
-
-
-
 #endif // EMPLEADO_H_INCLUDED
-///Esto va al final porque #endif es el cierre de una condicion

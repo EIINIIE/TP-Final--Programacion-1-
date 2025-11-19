@@ -13,10 +13,10 @@ typedef struct stVenta
     char dniVendedor[15];
 } Venta;
 
-// ------- Prototipos (ESTO ES LO QUE FALTABA) -------
+// ------- Prototipos -------
 Venta cargarVenta();
 void registrarVenta();
 void mostrarVenta(Venta ventas);
-void mostrarVentas(); // <--- Esta es la que te da error en gerente.c
+void mostrarVentas();
 
 #endif // VENTA_H_INCLUDED
