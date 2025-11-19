@@ -297,7 +297,7 @@
 1763491668 c:\users\agust\onedrive\documentos\github\tp-final--programacion-1-\auto_cliente.h
 	"cliente.h"
 
-1763576809 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\auto_cliente.c
+1763577889 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\auto_cliente.c
 	<stdio.h>
 	<stdlib.h>
 	"auto_cliente.h"
@@ -308,7 +308,7 @@
 
 1763576809 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\cliente.h
 
-1763576809 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\cliente.c
+1763580433 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\cliente.c
 	<stdio.h>
 	<string.h>
 	"cliente.h"
@@ -398,7 +398,7 @@
 1763576809 c:\users\usuario\desktop\git hub\tp-final--programacion-1-\auto.h
 	"cliente.h"
 
-1763576809 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\usuario.c
+1763578401 source:c:\users\usuario\desktop\git hub\tp-final--programacion-1-\usuario.c
 	<stdio.h>
 	<string.h>
 	<stdlib.h>

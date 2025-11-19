@@ -182,12 +182,13 @@ void iniciarSesion()
                 printf("Saliendo...\n");
                 return;
 
-            case 1:
-                cargar_persona();
-                // NOTA: Aquí también podrías guardar si fuera necesario,
-                // pero el login de usuario suele ser para consultas.
+            case 1: /// en el case 1 necesita llaves
+                {
+        Cliente nuevoC = cargar_persona();
+        guardar_cliente_en_archivo(nuevoC);
                 break;
 
+                }
             case 2:
                 agregar_autos_cliente();
                 break;

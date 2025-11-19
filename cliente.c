@@ -34,6 +34,7 @@ void guardar_cliente_en_archivo(Cliente c)
         fwrite(&c, sizeof(Cliente), 1, file);
         fclose(file);
         printf("\n[EXITO] Cliente guardado correctamente.\n");
+        printf("DNI guardado: [%s]\n", c.dni); /// verifico
     }
     else
     {
@@ -49,7 +50,7 @@ void modificar_cliente()
     printf("Ingrese DNI del cliente a modificar: ");
     scanf("%s", dniBuscado);
 
-    FILE *f = fopen(ARCHIVO_CLIENTES, "rb+");
+    FILE *f = fopen(ARCHIVO_CLIENTES, "r+b");
     if(f == NULL)
     {
         printf("No se pudo abrir el archivo de clientes.\n");
@@ -62,8 +63,8 @@ void modificar_cliente()
     while(fread(&c, sizeof(Cliente), 1, f) == 1)
     {
         // Eliminamos posibles espacios al final del DNI
-        c.dni[strcspn(c.dni, "\n")] = 0; /// Sacarlo ?
-        c.dni[strcspn(c.dni, " ")] = 0; /// Sacarlo ?
+        c.dni[strcspn(c.dni, "\n")] = 0;
+        c.dni[strcspn(c.dni, " ")] = 0;
 
         if(strcmp(c.dni, dniBuscado) == 0)
         {

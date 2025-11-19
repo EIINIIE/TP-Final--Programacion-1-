@@ -44,6 +44,9 @@ void agregar_autos_cliente()
     AutoCliente nuevo_auto = cargar_auto_cliente();
     nuevo_auto.titular = cargar_persona();
 
+    ///Guardo el cliente en clientes.bin
+    guardar_cliente_en_archivo(nuevo_auto.titular);
+
     fwrite(&nuevo_auto, sizeof(AutoCliente), 1, file);
     fclose(file);
     printf("Auto y titular cargados correctamente en autos_cliente.bin\n");
